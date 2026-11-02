@@ -1,16 +1,72 @@
-# React + Vite
+# Light Cells Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The official website for Light Cells Solutions, presenting the company's biotechnology, information technology, and maintenance services.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The site brings the company's services and products together in one place. Visitors can explore biotechnology products, learn about IT and maintenance services, and contact the team with enquiries.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Company home and about pages
+- Biotechnology products and services
+- Searchable product catalogue with category filters
+- Information technology and maintenance pages
+- Contact and product enquiry forms
+- Responsive layouts
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- React Router
+- CSS
+
+## Getting Started
+
+### Prerequisites
+
+Install [Node.js](https://nodejs.org/) and npm.
+
+### Installation
+
+Clone the repository and install its dependencies:
+
+```bash
+git clone https://github.com/mozammilh9911/LightCellsSolution.git
+cd LightCellsSolution
+npm install
+```
+
+### Run the Development Server
+
+```bash
+npm run dev
+```
+
+Vite will print the local URL in the terminal.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Run Lint Checks
+
+```bash
+npm run lint
+```
+
+## Main Pages
+
+| Page | URL |
+|---|---|
+| Home | `/` |
+| About | `/about` |
+| Information Technology | `/Information` |
+| Biotechnology | `/biotechnology` |
+| Biotechnology About | `/biotechnology/about` |
+| Biotechnology Products | `/biotechnology/products` |
+| Maintenance | `/maintenance` |
+| Contact | `/contact` |
