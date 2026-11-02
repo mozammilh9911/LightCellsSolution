@@ -207,14 +207,29 @@
 	transform: translateY(-1px);
 }
 
-.success-banner {
+.submission-banner {
 	margin-bottom: 18px;
-	border: 1px solid #a7f3d0;
 	border-radius: 8px;
-	background: #ecfdf5;
-	color: #047857;
 	padding: 13px 15px;
 	line-height: 1.5;
+}
+
+.submission-banner.success {
+	border: 1px solid #a7f3d0;
+	background: #ecfdf5;
+	color: #047857;
+}
+
+.submission-banner.error {
+	border: 1px solid #fecaca;
+	background: #fef2f2;
+	color: #b91c1c;
+}
+
+.full-width-btn:disabled {
+	cursor: wait;
+	opacity: 0.7;
+	transform: none;
 }
 
 .facility-info-stack {

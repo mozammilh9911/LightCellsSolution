@@ -11,12 +11,68 @@ const CATEGORIES = [
   { label: "Miscellaneous Labware", value: "Miscellaneous Labware" },
 ];
 
+const PRODUCT_INQUIRY_EMAIL =
+  import.meta.env.VITE_PRODUCT_INQUIRY_EMAIL || "sajda3109@gmail.com";
+
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All Products");
   const [searchQuery, setSearchQuery] = useState("");
   const [inquiryProduct, setInquiryProduct] = useState(null);
+  const [inquiryStatus, setInquiryStatus] = useState("idle");
+  const [inquiryMessage, setInquiryMessage] = useState("");
   const { hash } = useLocation();
   const searchInputRef = useRef(null);
+
+  const handleInquirySubmit = async (event) => {
+    event.preventDefault();
+    setInquiryStatus("submitting");
+    setInquiryMessage("");
+
+    const formData = new FormData(event.currentTarget);
+    const inquiry = Object.fromEntries(formData.entries());
+
+    const payload = {
+      ...inquiry,
+      product: inquiryProduct.name,
+      productCategory: inquiryProduct.category,
+      _subject: `Product inquiry: ${inquiryProduct.name}`,
+    };
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(PRODUCT_INQUIRY_EMAIL)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        },
+      );
+      const result = await response.json();
+
+      if (!response.ok || (result.success !== "true" && result.success !== true)) {
+        throw new Error(
+          typeof result.message === "string"
+            ? result.message
+            : "The inquiry could not be sent. Please try again.",
+        );
+      }
+
+      setInquiryStatus("success");
+      setInquiryMessage(
+        "Your query has been sent successfully. You will be contacted in a few minutes.",
+      );
+    } catch (error) {
+      setInquiryStatus("error");
+      setInquiryMessage(
+        error instanceof Error
+          ? error.message
+          : "The inquiry could not be sent. Please try again.",
+      );
+    }
+  };
 
   useEffect(() => {
     if (hash !== "#catalog-search") return;
@@ -131,7 +187,11 @@ export default function ProductsPage() {
                   <div className="card-action-bar">
                     <button
                       className="btn-cyan-glow"
-                      onClick={() => setInquiryProduct(product)}
+                      onClick={() => {
+                        setInquiryProduct(product);
+                        setInquiryStatus("idle");
+                        setInquiryMessage("");
+                      }}
                     >
                       Instant Inquiry ⚡
                     </button>
@@ -165,41 +225,126 @@ export default function ProductsPage() {
       {/* 5. Glassmorphism Modal Overlay */}
       {inquiryProduct && (
         <div className="glass-modal-backdrop" onClick={() => setInquiryProduct(null)}>
-          <div className="glass-modal-card" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setInquiryProduct(null)}>
+          <div
+            className="glass-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="product-inquiry-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="modal-close"
+              aria-label="Close product inquiry"
+              onClick={() => setInquiryProduct(null)}
+            >
               ✕
             </button>
             <div className="modal-header">
               <span className="modal-tag">PRODUCT ENQUIRY</span>
-              <h3>{inquiryProduct.name}</h3>
+              <h3 id="product-inquiry-title">{inquiryProduct.name}</h3>
             </div>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("This enquiry form is a preview and is not connected to a submission service yet.");
-                setInquiryProduct(null);
-              }}
-            >
-              <div className="form-field">
-                <label>Your Name</label>
-                <input type="text" required placeholder="Your name" />
-              </div>
-              <div className="form-field">
-                <label>Contact Email / Phone</label>
-                <input type="text" required placeholder="Email address or phone number" />
-              </div>
-              <div className="form-field">
-                <label>Target Quantity</label>
-                <input type="number" min="1" defaultValue="1" />
-              </div>
-              <div className="form-field">
-                <label>Custom Specifications / Remarks</label>
-                <textarea rows="3" placeholder="Share the target, application, or specifications you need."></textarea>
-              </div>
-              <button type="submit" className="btn-cyan-glow full-width">
-                Submit Inquiry
-              </button>
-            </form>
+            {inquiryMessage && (
+              <p
+                className={`inquiry-status-message ${inquiryStatus}`}
+                role={inquiryStatus === "error" ? "alert" : "status"}
+                aria-live="polite"
+              >
+                {inquiryMessage}
+              </p>
+            )}
+            {inquiryStatus !== "success" && (
+              <form onSubmit={handleInquirySubmit}>
+                <input
+                  type="text"
+                  name="_honey"
+                  className="inquiry-honeypot"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+                <div className="form-field">
+                  <label htmlFor="inquiry-name">Your Name *</label>
+                  <input
+                    id="inquiry-name"
+                    name="name"
+                    type="text"
+                    required
+                    minLength="2"
+                    maxLength="80"
+                    autoComplete="name"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="inquiry-email">Email Address *</label>
+                  <input
+                    id="inquiry-email"
+                    name="email"
+                    type="email"
+                    required
+                    maxLength="254"
+                    autoComplete="email"
+                    placeholder="name@example.com"
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="inquiry-phone">Phone Number *</label>
+                  <input
+                    id="inquiry-phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    minLength="7"
+                    maxLength="20"
+                    pattern="(?=.*[0-9])[0-9+() -]{7,20}"
+                    title="Enter 7 to 20 characters using digits, spaces, +, parentheses, or hyphens."
+                    autoComplete="tel"
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="inquiry-organization">Organization</label>
+                  <input
+                    id="inquiry-organization"
+                    name="organization"
+                    type="text"
+                    maxLength="120"
+                    autoComplete="organization"
+                    placeholder="Your organization (optional)"
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="inquiry-quantity">Target Quantity *</label>
+                  <input
+                    id="inquiry-quantity"
+                    name="quantity"
+                    type="number"
+                    min="1"
+                    step="1"
+                    defaultValue="1"
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="inquiry-remarks">Specifications / Remarks</label>
+                  <textarea
+                    id="inquiry-remarks"
+                    name="remarks"
+                    rows="3"
+                    maxLength="2000"
+                    placeholder="Share specifications or questions (optional)."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="btn-cyan-glow full-width"
+                  disabled={inquiryStatus === "submitting"}
+                >
+                  {inquiryStatus === "submitting" ? "Sending..." : "Send Query"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       )}

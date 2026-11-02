@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./Contactus.css";
 
+const INQUIRY_EMAIL =
+  import.meta.env.VITE_PRODUCT_INQUIRY_EMAIL || "sajda3109@gmail.com";
+
 const CONTACT_CATEGORIES = [
   "General Inquiry",
   "Information Technology",
@@ -11,7 +14,8 @@ const CONTACT_CATEGORIES = [
 export default function BiotechnologyContact() {
   const [selectedCategory, setSelectedCategory] = useState("General Inquiry");
   const [isHelpOpen, setIsHelpOpen] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState("idle");
+  const [submissionMessage, setSubmissionMessage] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -21,17 +25,47 @@ export default function BiotechnologyContact() {
   });
 
   const handleChange = (e) => {
+    setSubmissionStatus("idle");
+    setSubmissionMessage("");
     setFormData((currentData) => ({
       ...currentData,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    setSubmissionStatus("submitting");
+    setSubmissionMessage("");
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(INQUIRY_EMAIL)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            category: selectedCategory,
+            _subject: `Website contact inquiry: ${selectedCategory}`,
+          }),
+        },
+      );
+      const result = await response.json();
+
+      if (!response.ok || (result.success !== "true" && result.success !== true)) {
+        throw new Error(
+          typeof result.message === "string"
+            ? result.message
+            : "Your message could not be sent. Please try again.",
+        );
+      }
+
+      setSubmissionStatus("success");
+      setSubmissionMessage("Your message was sent successfully. We will contact you soon.");
       setFormData({
         fullName: "",
         email: "",
@@ -39,7 +73,14 @@ export default function BiotechnologyContact() {
         organization: "",
         message: "",
       });
-    }, 4000);
+    } catch (error) {
+      setSubmissionStatus("error");
+      setSubmissionMessage(
+        error instanceof Error
+          ? error.message
+          : "Your message could not be sent. Please try again.",
+      );
+    }
   };
 
   return (
@@ -93,9 +134,13 @@ export default function BiotechnologyContact() {
                 </p>
               </div>
 
-              {isSubmitted && (
-                <div className="success-banner">
-                  ⚡ Request Logged! An expert advisor will contact you shortly.
+              {submissionMessage && (
+                <div
+                  className={`submission-banner ${submissionStatus}`}
+                  role={submissionStatus === "error" ? "alert" : "status"}
+                  aria-live="polite"
+                >
+                  {submissionMessage}
                 </div>
               )}
 
@@ -171,7 +216,11 @@ export default function BiotechnologyContact() {
                   <select
                     id="contact-category"
                     value={selectedCategory}
-                    onChange={(event) => setSelectedCategory(event.target.value)}
+                    onChange={(event) => {
+                      setSelectedCategory(event.target.value);
+                      setSubmissionStatus("idle");
+                      setSubmissionMessage("");
+                    }}
                     required
                   >
                     {CONTACT_CATEGORIES.map((category) => (
@@ -194,8 +243,12 @@ export default function BiotechnologyContact() {
                   />
                 </div>
 
-                <button type="submit" className="btn-cyan-glow full-width-btn">
-                  Submit Official Inquiry ⚡
+                <button
+                  type="submit"
+                  className="btn-cyan-glow full-width-btn"
+                  disabled={submissionStatus === "submitting"}
+                >
+                  {submissionStatus === "submitting" ? "Sending..." : "Submit Official Inquiry ⚡"}
                 </button>
               </form>
             </div>

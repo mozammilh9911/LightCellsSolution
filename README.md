@@ -58,6 +58,18 @@ npm run build
 npm run lint
 ```
 
+## Inquiry Emails
+
+Product inquiry forms and the contact page email submitted details through [FormSubmit](https://formsubmit.co/) to `sajda3109@gmail.com` by default. FormSubmit processes the submitted details to deliver the email. On the first submission, FormSubmit sends a confirmation email to the recipient; confirm it before testing delivery.
+
+To use a different recipient, create a `.env.local` file in the project root:
+
+```env
+VITE_PRODUCT_INQUIRY_EMAIL=your-email@example.com
+```
+
+Restart the development server after changing the recipient. For a production deployment, set the same variable in the hosting provider's environment settings and rebuild the site. The recipient address is included in the public frontend; do not put passwords or API secrets in `VITE_` variables.
+
 ## Main Pages
 
 | Page | URL |
