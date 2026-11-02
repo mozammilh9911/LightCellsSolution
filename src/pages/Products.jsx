@@ -4,11 +4,11 @@ import Carousel from "./Carousel";
 import "./Products.css";
 
 const CATEGORIES = [
-  "All Products",
-  "Laboratory Glassware",
-  "Plasticware Products",
-  "Laboratory Instruments",
-  "Safety & PPE",
+  { label: "All Products", value: "All Products" },
+  { label: "Plasticware Products", value: "Plastic Labware" },
+  { label: "Laboratory Glassware", value: "Laboratory Glassware" },
+  { label: "Laboratory Instruments", value: "Laboratory Instruments" },
+  { label: "Miscellaneous Labware", value: "Miscellaneous Labware" },
 ];
 
 export default function ProductsPage() {
@@ -29,12 +29,14 @@ export default function ProductsPage() {
   }, [hash]);
 
   const filteredProducts = useMemo(() => {
+    const normalizedQuery = searchQuery.trim().toLowerCase();
+
     return PRODUCTS_DATA.filter((product) => {
       const matchesCategory =
         selectedCategory === "All Products" || product.category === selectedCategory;
       const matchesSearch =
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchQuery.toLowerCase());
+        product.name.toLowerCase().includes(normalizedQuery) ||
+        product.description.toLowerCase().includes(normalizedQuery);
       return matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchQuery]);
@@ -73,11 +75,11 @@ export default function ProductsPage() {
             <div className="category-pills">
               {CATEGORIES.map((category) => (
                 <button
-                  key={category}
-                  className={`pill-btn ${selectedCategory === category ? "active" : ""}`}
-                  onClick={() => setSelectedCategory(category)}
+                  key={category.value}
+                  className={`pill-btn ${selectedCategory === category.value ? "active" : ""}`}
+                  onClick={() => setSelectedCategory(category.value)}
                 >
-                  {category}
+                  {category.label}
                 </button>
               ))}
             </div>
