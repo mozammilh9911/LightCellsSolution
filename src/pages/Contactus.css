@@ -1,0 +1,374 @@
+.contact-edge-page {
+	min-height: 100vh;
+	background: #f8fafc;
+	color: #0f172a;
+}
+
+.contact-edge-page .edge-container {
+	width: min(1200px, 100%);
+	margin: 0 auto;
+	padding: 0 24px;
+	box-sizing: border-box;
+}
+
+.contact-page-header {
+	padding: 72px 0 88px;
+	background: linear-gradient(135deg, #eaf4ff 0%, #f8fafc 58%, #ecfdf5 100%);
+}
+
+.contact-page-header .badge-neon {
+	display: inline-flex;
+	padding: 7px 12px;
+	border: 1px solid #bfdbfe;
+	border-radius: 999px;
+	background: #eff6ff;
+	color: #2563eb;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.contact-page-header h1 {
+	max-width: 760px;
+	margin: 18px 0 12px;
+	color: #0f172a;
+	font-size: 44px;
+	line-height: 1.12;
+}
+
+.contact-page-header p {
+	max-width: 680px;
+	color: #475569;
+	font-size: 17px;
+	line-height: 1.7;
+}
+
+.contact-edge-page .catalog-control-panel {
+	position: relative;
+	z-index: 1;
+	margin-top: -36px;
+}
+
+.contact-control-bar,
+.modern-contact-card,
+.quick-info-box,
+.map-placeholder-card {
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.contact-control-bar {
+	display: grid;
+	gap: 18px;
+	padding: 22px;
+}
+
+.control-bar-header h2 {
+	margin: 0;
+	color: #0f172a;
+	font-size: 19px;
+}
+
+.contact-edge-page .category-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.contact-edge-page .pill-btn {
+	padding: 10px 14px;
+	border: 1px solid #dbe3ec;
+	border-radius: 999px;
+	background: #f8fafc;
+	color: #475569;
+	font: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.contact-edge-page .pill-btn:hover {
+	border-color: #93c5fd;
+	color: #1d4ed8;
+}
+
+.contact-edge-page .pill-btn.active {
+	border-color: #2563eb;
+	background: #2563eb;
+	color: #fff;
+}
+
+.edge-contact-section {
+	padding: 42px 0 76px;
+}
+
+.edge-contact-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+	align-items: start;
+	gap: 24px;
+}
+
+.modern-contact-card {
+	padding: 30px;
+}
+
+.card-header-box {
+	margin-bottom: 24px;
+}
+
+.contact-edge-page .category-tag {
+	color: #059669;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.panel-title {
+	margin: 8px 0;
+	color: #0f172a;
+	font-size: 24px;
+}
+
+.panel-desc {
+	color: #64748b;
+	line-height: 1.6;
+}
+
+.edge-contact-form {
+	display: grid;
+	gap: 18px;
+}
+
+.contact-edge-page .form-row {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.contact-edge-page .form-field {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	gap: 7px;
+}
+
+.contact-edge-page .form-field label {
+	color: #334155;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.contact-edge-page .form-field input,
+.contact-edge-page .form-field textarea,
+.contact-edge-page .form-field select {
+	width: 100%;
+	border: 1px solid #cbd5e1;
+	border-radius: 8px;
+	background: #fff;
+	color: #0f172a;
+	padding: 12px 13px;
+	font: inherit;
+	font-size: 14px;
+	outline: none;
+	transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.contact-edge-page .form-field textarea {
+	resize: vertical;
+}
+
+.contact-edge-page .form-field input:focus,
+.contact-edge-page .form-field textarea:focus,
+.contact-edge-page .form-field select:focus {
+	border-color: #2563eb;
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+}
+
+.full-width-btn,
+.help-submit-btn {
+	border: 0;
+	border-radius: 8px;
+	background: linear-gradient(135deg, #2563eb, #059669);
+	color: #fff;
+	padding: 13px 18px;
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+	transition: filter 160ms ease, transform 160ms ease;
+}
+
+.full-width-btn:hover,
+.help-submit-btn:hover {
+	filter: brightness(1.05);
+	transform: translateY(-1px);
+}
+
+.success-banner {
+	margin-bottom: 18px;
+	border: 1px solid #a7f3d0;
+	border-radius: 8px;
+	background: #ecfdf5;
+	color: #047857;
+	padding: 13px 15px;
+	line-height: 1.5;
+}
+
+.facility-info-stack {
+	display: grid;
+	gap: 18px;
+}
+
+.quick-info-box {
+	padding: 8px 22px;
+}
+
+.info-item {
+	display: grid;
+	grid-template-columns: 38px minmax(0, 1fr);
+	gap: 12px;
+	align-items: start;
+	padding: 18px 0;
+}
+
+.info-item + .info-item {
+	border-top: 1px solid #e2e8f0;
+}
+
+.info-icon {
+	display: grid;
+	width: 36px;
+	height: 36px;
+	place-items: center;
+	border-radius: 10px;
+	background: #eff6ff;
+	font-size: 17px;
+}
+
+.info-item h4 {
+	margin: 0 0 5px;
+	color: #0f172a;
+	font-size: 14px;
+}
+
+.info-item p {
+	color: #64748b;
+	font-size: 13px;
+	line-height: 1.6;
+	overflow-wrap: anywhere;
+}
+
+.map-placeholder-card {
+	display: grid;
+	min-height: 190px;
+	place-items: center;
+	padding: 24px;
+	background: linear-gradient(145deg, #eff6ff, #ecfdf5);
+	text-align: center;
+}
+
+.map-pin {
+	font-size: 24px;
+}
+
+.map-overlay-content h4 {
+	margin: 8px 0 4px;
+	color: #0f172a;
+}
+
+.map-overlay-content p {
+	margin-bottom: 12px;
+	color: #64748b;
+	font-size: 13px;
+}
+
+.map-link {
+	color: #2563eb;
+	font-size: 13px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.floating-help-btn {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 1100;
+	width: 52px;
+	height: 52px;
+	border: 0;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #2563eb, #059669);
+	color: #fff;
+	box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.help-popup-card {
+	position: fixed;
+	right: 24px;
+	bottom: 88px;
+	z-index: 1100;
+	width: min(340px, calc(100vw - 32px));
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0 18px 48px rgba(15, 23, 42, 0.16);
+}
+
+.help-header {
+	margin-bottom: 16px;
+}
+
+.help-header h3 {
+	margin: 0 0 4px;
+	color: #0f172a;
+}
+
+.help-header p {
+	color: #64748b;
+	font-size: 13px;
+}
+
+.help-popup-card form {
+	display: grid;
+	gap: 14px;
+}
+
+@media (max-width: 760px) {
+	.contact-page-header {
+		padding: 52px 0 72px;
+	}
+
+	.contact-page-header h1 {
+		font-size: 34px;
+	}
+
+	.edge-contact-grid,
+	.contact-edge-page .form-row {
+		grid-template-columns: 1fr;
+	}
+
+	.modern-contact-card {
+		padding: 22px;
+	}
+
+	.contact-control-bar {
+		padding: 18px;
+	}
+
+	.floating-help-btn {
+		right: 16px;
+		bottom: 16px;
+	}
+
+	.help-popup-card {
+		right: 16px;
+		bottom: 78px;
+	}
+}

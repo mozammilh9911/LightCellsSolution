@@ -1,0 +1,1978 @@
+/* ===========================
+   GLOBAL
+=========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bio-page {
+  background: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.bio-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 60px;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.bio-navbar.centered-main-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.centered-main-nav .nav-links {
+  gap: 48px;
+  justify-self: center;
+  transform: none;
+}
+
+.centered-main-nav > a:last-child {
+  justify-self: end;
+}
+
+.logo h2 {
+  color: #2563eb;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.home-navbar .nav-links {
+  transform: translateX(24px);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+.nav-btn {
+  border: none;
+
+  padding: 12px 24px;
+
+  color: white;
+
+  cursor: pointer;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #10b981
+  );
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero {
+  min-height: 85vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 100px 20px;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.75),
+      rgba(255,255,255,0.75)
+    ),
+    url("/images/hero-biotech.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  max-width: 950px;
+}
+
+.hero-tag {
+  display: inline-block;
+
+  color: #10b981;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 72px;
+
+  color: #0f172a;
+
+  margin-bottom: 25px;
+
+  line-height: 1.1;
+}
+
+.hero p {
+  max-width: 780px;
+
+  margin: auto;
+
+  color: #64748b;
+
+  line-height: 1.8;
+
+  font-size: 18px;
+}
+
+.hero-buttons {
+  margin-top: 35px;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+
+  padding: 15px 30px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.primary-btn {
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #10b981
+  );
+}
+
+.secondary-btn {
+  background: white;
+
+  color: #2563eb;
+
+  border: 1px solid #2563eb;
+}
+
+/* ===========================
+   ABOUT
+=========================== */
+
+.about-section {
+  padding: 100px 80px;
+}
+
+.section-header {
+  max-width: 900px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 52px;
+
+  color: #0f172a;
+
+  margin-bottom: 25px;
+}
+
+.section-header p {
+  color: #64748b;
+
+  line-height: 1.8;
+
+  margin-bottom: 30px;
+}
+
+.section-btn {
+  border: none;
+
+  padding: 14px 28px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: #2563eb;
+}
+
+/* ===========================
+   PRODUCTS
+=========================== */
+
+.products-section {
+  padding: 100px 80px;
+
+  background: white;
+}
+
+.products-section h2 {
+  text-align: center;
+
+  font-size: 52px;
+
+  margin-bottom: 60px;
+}
+
+.products-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+.product-card {
+  background: white;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  color: #2563eb;
+
+  margin: 20px 20px 10px;
+}
+
+.product-card p {
+  color: #64748b;
+
+  padding: 0 20px;
+
+  line-height: 1.7;
+}
+
+.read-more-btn {
+  margin: 20px;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  color: white;
+
+  cursor: pointer;
+
+  background: #2563eb;
+}
+
+/* ===========================
+   SERVICES
+=========================== */
+
+.services-section {
+  padding: 100px 80px;
+}
+
+.services-section h2 {
+  text-align: center;
+
+  font-size: 52px;
+
+  margin-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+.service-card {
+  background: white;
+
+  padding: 35px;
+
+  text-align: center;
+
+  border-radius: 24px;
+
+  border: 1px solid #e2e8f0;
+
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+
+  color: #10b981;
+}
+
+.service-card p {
+  color: #64748b;
+
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   STATISTICS
+=========================== */
+
+.stats-section {
+  padding: 100px 80px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+.stat-card {
+  background: white;
+
+  padding: 40px;
+
+  text-align: center;
+
+  border-radius: 24px;
+
+  border: 1px solid #e2e8f0;
+}
+
+.stat-card h2 {
+  font-size: 60px;
+
+  color: #2563eb;
+}
+
+.stat-card p {
+  margin-top: 10px;
+
+  color: #64748b;
+}
+
+/* ===========================
+   CTA
+=========================== */
+
+.cta-section {
+  margin: 80px;
+
+  padding: 100px 30px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #10b981
+  );
+}
+
+.cta-section h2 {
+  font-size: 48px;
+
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 18px;
+}
+
+.contact-btn {
+  margin-top: 25px;
+
+  border: none;
+
+  padding: 15px 30px;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #2563eb;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+  border-top: 1px solid #e2e8f0;
+  background: #fff;
+  color: #0f2942;
+}
+
+.footer-container {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  padding: 54px 24px;
+  box-sizing: border-box;
+}
+
+.footer-container h3 {
+  margin-bottom: 12px;
+  color: #2563eb;
+}
+
+.footer-container h4 {
+  margin-bottom: 14px;
+  color: #0f2942;
+}
+
+.footer-container p {
+  color: #526579;
+  margin-bottom: 8px;
+}
+
+.footer-container a {
+  color: #526579;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.footer-container a:hover {
+  color: #059669;
+}
+
+.copyright {
+  text-align: center;
+  padding: 18px 24px;
+  color: #64748b;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+
+  .products-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .bio-navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .centered-main-nav .nav-links {
+    gap: 24px;
+  }
+
+  .home-navbar .nav-links {
+    transform: none;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .products-grid,
+  .services-grid,
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section,
+  .products-section,
+  .services-section,
+  .stats-section {
+    padding: 60px 20px;
+  }
+
+  .cta-section {
+    margin: 20px;
+    padding: 60px 20px;
+  }
+
+  .footer-container {
+    padding: 50px 20px;
+  }
+}
+
+/* ----------------------------------------------
+   FEATURED PRODUCTS GRID & SEE MORE BUTTON
+---------------------------------------------- */
+.products-section {
+  padding: 60px 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(11, 30, 72, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 102, 226, 0.15);
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #0066e2;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.category-label {
+  font-size: 0.8rem;
+  color: #0066e2;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.card-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* See More Redirection Button Container */
+.see-more-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.see-more-btn {
+  background-color: #0066e2;
+  color: #ffffff;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(0, 102, 226, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.see-more-btn:hover {
+  background-color: #0052b8;
+  transform: translateY(-2px);
+}
+
+.see-more-btn .arrow {
+  font-size: 1.1rem;
+}
+
+/* ==============================================
+   AMEX GBT STYLE 6-CARD GRID SECTION
+============================================== */
+
+/* ==============================================
+   AMEX GBT STYLE 6-CARD GRID SECTION (FIXED MARGINS)
+============================================== */
+
+.solutions-cards-section {
+  background-color: #ebf3fa;
+  padding: 80px 40px; /* Added left and right padding to the section */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.solutions-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px; /* Ensures breathing room on smaller viewports */
+  box-sizing: border-box;
+}
+
+.solutions-main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin-bottom: 48px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.solutions-section-heading {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.solutions-section-heading .solutions-main-title {
+  margin-bottom: 12px;
+}
+
+.solutions-section-heading p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* 3-Column Grid for 6 Cards */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+/* Card Outer Shell */
+.gbt-pill-card {
+  background-color: #ffffff;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 30, 72, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 380px;
+}
+
+.gbt-pill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 102, 226, 0.15);
+}
+
+/* Top Curved Header Block */
+.card-top-header {
+  padding: 36px 28px 28px 28px;
+  border-radius: 40px 40px 0 0;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 140px;
+}
+
+.brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.card-brand-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Header Background Color Themes */
+.bg-sky-blue {
+  background-color: #b1e5fc;
+  color: #0b1e48;
+}
+.bg-sky-blue .brand-subtitle {
+  color: #0b1e48;
+}
+
+.bg-dark-navy {
+  background-color: #071533;
+}
+
+.bg-medium-blue {
+  background-color: #2b4b9b;
+}
+
+.bg-deep-navy {
+  background-color: #021235;
+}
+
+.bg-burgundy {
+  background-color: #7a1c3d;
+}
+
+.bg-royal-blue {
+  background-color: #0066e2;
+}
+
+/* Bottom Body Content */
+.card-bottom-body {
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  flex: 1;
+}
+
+.card-bottom-body p {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #334155;
+  margin: 0 0 28px 0;
+  max-width: 280px;
+}
+
+/* Oval Outline CTA Button */
+.gbt-explore-btn {
+  border: 1.5px solid #0066e2;
+  color: #0066e2;
+  background-color: transparent;
+  padding: 10px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.gbt-explore-btn:hover {
+  background-color: #0066e2;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.gbt-explore-btn .arrow {
+  font-size: 1.1rem;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .solutions-cards-section {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .solutions-cards-section {
+    padding: 40px 16px;
+  }
+}
+
+.solutions-main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin-bottom: 48px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+/* 3-Column Grid for 6 Cards */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Card Outer Shell */
+.gbt-pill-card {
+  background-color: #ffffff;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 30, 72, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 380px;
+}
+
+.gbt-pill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 102, 226, 0.15);
+}
+
+/* Top Curved Header Block */
+.card-top-header {
+  padding: 36px 28px 28px 28px;
+  border-radius: 40px 40px 0 0;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 140px;
+}
+
+.brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.card-brand-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Specific Header Background Color Themes */
+.bg-sky-blue {
+  background-color: #b1e5fc;
+  color: #0b1e48;
+}
+.bg-sky-blue .brand-subtitle {
+  color: #0b1e48;
+}
+
+.bg-dark-navy {
+  background-color: #071533;
+}
+
+.bg-medium-blue {
+  background-color: #2b4b9b;
+}
+
+.bg-deep-navy {
+  background-color: #021235;
+}
+
+.bg-burgundy {
+  background-color: #7a1c3d;
+}
+
+.bg-royal-blue {
+  background-color: #0066e2;
+}
+
+/* Bottom Body Content */
+.card-bottom-body {
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  flex: 1;
+}
+
+.card-bottom-body p {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #334155;
+  margin: 0 0 28px 0;
+  max-width: 280px;
+}
+
+/* Oval Outline CTA Button */
+.gbt-explore-btn {
+  border: 1.5px solid #0066e2;
+  color: #0066e2;
+  background-color: transparent;
+  padding: 10px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.gbt-explore-btn:hover {
+  background-color: #0066e2;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.gbt-explore-btn .arrow {
+  font-size: 1.1rem;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .gbt-pill-card {
+    min-height: auto;
+  }
+}
+/* ==============================================
+   AMEX GBT STYLE 4x2 GRID SECTION (4 Cards per line)
+============================================== */
+
+.solutions-cards-section {
+  background-color: #ebf3fa;
+  padding: 80px 40px; /* Safe left and right outer margin padding */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.solutions-container {
+  max-width: 1400px; /* Generous width to comfortably fit 4 columns side-by-side */
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.solutions-main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin-bottom: 48px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+/* Exactly 4 Columns per row (Results in 4 on top, 4 on bottom) */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px; /* Clean gap spacing between cards */
+  width: 100%;
+}
+
+/* Card Outer Shell */
+.gbt-pill-card {
+  background-color: #ffffff;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 30, 72, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 360px;
+}
+
+.gbt-pill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 102, 226, 0.15);
+}
+
+/* Top Curved Header Block */
+.card-top-header {
+  padding: 32px 24px 24px 24px;
+  border-radius: 36px 36px 0 0;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 130px;
+}
+
+.brand-subtitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.card-brand-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Header Background Themes */
+.bg-sky-blue {
+  background-color: #b1e5fc;
+  color: #0b1e48;
+}
+.bg-sky-blue .brand-subtitle {
+  color: #0b1e48;
+}
+
+.bg-dark-navy {
+  background-color: #071533;
+}
+
+.bg-medium-blue {
+  background-color: #2b4b9b;
+}
+
+.bg-deep-navy {
+  background-color: #021235;
+}
+
+.bg-burgundy {
+  background-color: #7a1c3d;
+}
+
+.bg-royal-blue {
+  background-color: #0066e2;
+}
+
+/* Bottom Body Content */
+.card-bottom-body {
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  flex: 1;
+}
+
+.card-bottom-body p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #334155;
+  margin: 0 0 20px 0;
+}
+
+/* Oval Outline CTA Button */
+.gbt-explore-btn {
+  border: 1.5px solid #0066e2;
+  color: #0066e2;
+  background-color: transparent;
+  padding: 8px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.gbt-explore-btn:hover {
+  background-color: #0066e2;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.gbt-explore-btn .arrow {
+  font-size: 1rem;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1200px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr); /* Automatically wraps to 2x4 on smaller screens */
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile phones */
+  }
+  .solutions-cards-section {
+    padding: 40px 16px;
+  }
+}
+
+/* ==============================================
+   AMEX GBT STYLE 4x2 PLATFORM SOLUTIONS GRID
+============================================== */
+
+.solutions-cards-section {
+  background-color: #ebf3fa;
+  padding: 80px 60px; /* Generous left and right page breathing room */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.solutions-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.solutions-main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin-bottom: 48px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+/* 4 Columns X 2 Rows Grid Layout */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  width: 100%;
+}
+
+/* Card Outer Shell */
+.gbt-pill-card {
+  background-color: #ffffff;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 30, 72, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 360px;
+}
+
+.gbt-pill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 102, 226, 0.15);
+}
+
+/* Top Curved Header Block */
+.card-top-header {
+  padding: 32px 24px 24px 24px;
+  border-radius: 36px 36px 0 0;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 130px;
+}
+
+.brand-subtitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.card-brand-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Header Background Color Variations */
+.bg-sky-blue {
+  background-color: #b1e5fc;
+  color: #0b1e48;
+}
+.bg-sky-blue .brand-subtitle {
+  color: #0b1e48;
+}
+
+.bg-dark-navy {
+  background-color: #071533;
+}
+
+.bg-medium-blue {
+  background-color: #2b4b9b;
+}
+
+.bg-deep-navy {
+  background-color: #021235;
+}
+
+.bg-burgundy {
+  background-color: #7a1c3d;
+}
+
+.bg-royal-blue {
+  background-color: #0066e2;
+}
+
+/* Bottom Body Content */
+.card-bottom-body {
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  flex: 1;
+}
+
+.card-bottom-body p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #334155;
+  margin: 0 0 20px 0;
+}
+
+/* Outline CTA Button */
+.gbt-explore-btn {
+  border: 1.5px solid #0066e2;
+  color: #0066e2;
+  background-color: transparent;
+  padding: 8px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.gbt-explore-btn:hover {
+  background-color: #0066e2;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.gbt-explore-btn .arrow {
+  font-size: 1rem;
+}
+
+/* Responsive Scaling Breakpoints */
+@media (max-width: 1200px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .solutions-cards-section {
+    padding: 40px 20px;
+  }
+}
+/* ==============================================
+   8-CARD MOVING/SLIDING IMAGE GRID SECTION
+============================================== */
+
+.solutions-cards-section {
+  background-color: #f1f6fb;
+  padding: 80px 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.solutions-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.solutions-main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin-bottom: 48px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+/* 4 Columns x 2 Rows Grid */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  width: 100%;
+}
+
+/* Card Outer Container */
+.gbt-pill-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(11, 30, 72, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 350px;
+}
+
+.gbt-pill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 102, 226, 0.12);
+}
+
+/* Top Sliding Image Container */
+.card-top-image {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  background-color: #0b1e48;
+}
+
+/* Smooth Cross-fade Sliding Images */
+.sliding-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 4s ease-in-out;
+  transform: scale(1);
+}
+
+.sliding-img.active {
+  opacity: 1;
+  transform: scale(1.06); /* Gentle zoom effect while active */
+}
+
+.image-gloss-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(11,30,72,0.25) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Card Content Area */
+.card-bottom-body {
+  padding: 24px 20px 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.card-title-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin: 0 0 8px 0;
+}
+
+.card-bottom-body p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin: 0 0 20px 0;
+}
+
+/* Circular Action Button */
+.circle-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #0b2265;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  align-self: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.circle-arrow-btn.cyan-btn {
+  background-color: #14b8a6;
+}
+
+.circle-arrow-btn:hover {
+  transform: scale(1.1);
+}
+
+.circle-arrow-btn .arrow {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1200px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .solutions-cards-section {
+    padding: 40px 20px;
+  }
+}
+
+/* ==============================================
+   STYLED CIRCULAR ARROW BUTTON
+============================================== */
+
+.styled-circle-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0b2265 0%, #1e3a8a 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  align-self: center;
+  box-shadow: 0 4px 12px rgba(11, 34, 101, 0.25);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Cyan/Teal Variant for alternating cards */
+.styled-circle-btn.cyan-variant {
+  background: linear-gradient(135deg, #0d9488 100%, #14b8a6 0%);
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+}
+
+/* Hover effects */
+.gbt-pill-card:hover .styled-circle-btn {
+  transform: scale(1.12);
+  box-shadow: 0 8px 20px rgba(0, 102, 226, 0.35);
+}
+
+.styled-circle-btn.cyan-variant:hover {
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.4);
+}
+
+/* Arrow Slide & Pulse Animation */
+.arrow-icon {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.25s ease-in-out;
+}
+
+.styled-circle-btn:hover .arrow-icon {
+  transform: translateX(3px); /* Smooth nudge effect to the right on hover */
+}
+
+/* Subtle outer ring pulse animation */
+.styled-circle-btn::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.styled-circle-btn:hover::after {
+  opacity: 0.35;
+  transform: scale(1.15);
+}
+
+/* ==============================================
+   FLOATING HELP BUTTON & POPUP CARD
+============================================== */
+
+.floating-help-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #0066e2 0%, #004bb5 100%);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 10px 25px rgba(0, 102, 226, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.floating-help-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 35px rgba(0, 102, 226, 0.55);
+}
+
+/* Help Card Popup Container */
+.help-popup-card {
+  position: fixed;
+  bottom: 95px;
+  right: 30px;
+  width: 320px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(11, 30, 72, 0.22);
+  border: 1px solid #e2e8f0;
+  z-index: 999;
+  animation: popupSlideIn 0.3s ease-out forwards;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.help-header h3 {
+  font-size: 1.15rem;
+  color: #0b1e48;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.help-header p {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0 0 16px 0;
+}
+
+.help-popup-card .form-field {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.help-popup-card .form-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.help-popup-card .form-field input,
+.help-popup-card .form-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+}
+
+.help-submit-btn {
+  width: 100%;
+  background-color: #0b2265;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.help-submit-btn:hover {
+  background-color: #0066e2;
+}
+
+@media (max-width: 480px) {
+  .floating-help-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    font-size: 0.88rem;
+  }
+  .help-popup-card {
+    right: 20px;
+    left: 20px;
+    width: auto;
+    bottom: 80px;
+  }
+}
+
+/* ==============================================
+   8 STYLISH REFERENCE-STYLE BOXES SECTION
+============================================== */
+
+.stylish-boxes-section {
+  background-color: #f8fafc;
+  padding: 80px 60px;
+  width: 100%;
+  box-sizing: border-box;
+  scroll-margin-top: 24px;
+}
+
+.stylish-boxes-section.is-highlighted {
+  animation: divisions-section-highlight 1.8s ease-out;
+}
+
+@keyframes divisions-section-highlight {
+  0%, 35% {
+    background-color: #cffafe;
+  }
+  100% {
+    background-color: #f8fafc;
+  }
+}
+
+.stylish-boxes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.stylish-grid-box {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 16px rgba(11, 30, 72, 0.03);
+}
+
+.stylish-grid-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 102, 226, 0.1);
+  border-color: #93c5fd;
+}
+
+.box-icon-wrap {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  background-color: #f1f5f9;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stylish-box-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0b1e48;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.stylish-box-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Responsive Scaling for Stylish Boxes */
+@media (max-width: 1200px) {
+  .stylish-boxes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .stylish-boxes-grid {
+    grid-template-columns: 1fr;
+  }
+  .stylish-boxes-section {
+    padding: 40px 20px;
+  }
+}
+
+
+/* ==============================================
+   COMPACT FLOATING HELP BUTTON & POPUP CARD
+============================================== */
+
+/* Small Circular Floating Action Button */
+.floating-help-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0066e2 0%, #0b1e48 100%);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0, 102, 226, 0.35);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.floating-help-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(0, 102, 226, 0.5);
+}
+
+/* Slick Pop-up Card Window */
+.help-popup-card {
+  position: fixed;
+  bottom: 86px;
+  right: 24px;
+  width: 300px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 16px 36px rgba(11, 30, 72, 0.18);
+  border: 1px solid #e2e8f0;
+  z-index: 999;
+  animation: helpPopupSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes helpPopupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.help-header h3 {
+  font-size: 1.05rem;
+  color: #0b1e48;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.help-header p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0 0 14px 0;
+}
+
+.help-popup-card .form-field {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.help-popup-card .form-field label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 3px;
+}
+
+.help-popup-card .form-field input,
+.help-popup-card .form-field textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.help-popup-card .form-field input:focus,
+.help-popup-card .form-field textarea:focus {
+  border-color: #0066e2;
+}
+
+.help-submit-btn {
+  width: 100%;
+  background-color: #0066e2;
+  color: #ffffff;
+  border: none;
+  padding: 9px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.help-submit-btn:hover {
+  background-color: #0052b8;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
+  .floating-help-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+  }
+  .help-popup-card {
+    right: 16px;
+    left: 16px;
+    width: auto;
+    bottom: 72px;
+  }
+}
