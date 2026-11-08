@@ -5,19 +5,19 @@ import "./Home.css";
 
 const CAROUSEL_SLIDES = [
   {
-    id: "01",
+    
     title: "Empowering Global Business & Scientific Infrastructure",
     subtitle: "One platform for Information Technology, Biotechnology solutions, and high-performance equipment maintenance.",
     bgClass: "slide-bg-1",
   },
   {
-    id: "02",
+   
     title: "Advanced Biotechnology & Precision Laboratory Equipment",
     subtitle: "High-precision laboratory glassware, bio-plasticware, and cutting-edge research tools designed for modern laboratories.",
     bgClass: "slide-bg-2",
   },
   {
-    id: "03",
+
     title: "24/7 Technical Support & Maintenance Services",
     subtitle: "Equipment calibration, preventive hardware servicing, and full enterprise system integrations.",
     bgClass: "slide-bg-3",
@@ -25,18 +25,9 @@ const CAROUSEL_SLIDES = [
 ];
 
 const CORE_DIVISIONS = [
-  {
-    id: "01",
-    title: "Information Technology",
-    subtitle: "Enterprise Software & Cloud",
-    description: "Enterprise software architecture, automated laboratory workflows, and secure high-performance data analytics platforms.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-    alt: "Information Technology Solutions",
-    path: "/Information",
-  },
-  {
-    id: "02",
-    title: "Biotechnology",
+   {
+  
+    title: "Life Sciences",
     subtitle: "Lab Informatics & Research",
     description: "High-precision laboratory glassware, bio-plasticware, analytical instruments, and cutting-edge research equipment.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80",
@@ -44,7 +35,17 @@ const CORE_DIVISIONS = [
     path: "/biotechnology",
   },
   {
-    id: "03",
+   
+    title: "Information Technology",
+    subtitle: "Enterprise Software & Cloud",
+    description: "Enterprise software architecture, automated laboratory workflows, and secure high-performance data analytics platforms.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    alt: "Information Technology Solutions",
+    path: "/Information",
+  },
+ 
+  {
+  
     title: "Maintenance & Services",
     subtitle: "24/7 Support & Calibration",
     description: "24/7 technical assistance, equipment calibration, preventive hardware servicing, and full system integrations.",
@@ -100,7 +101,7 @@ export default function Home() {
               className={`carousel-slide ${slide.bgClass}${slide.id === "03" ? " division-three-slide" : ""} ${index === currentSlide ? "active" : ""}`}
             >
               <div className="hero-content">
-                <span className="slide-badge">Division {slide.id}</span>
+                {/* <span className="slide-badge"> {slide.id}</span> */}
                 <h1 className="hero-title">{slide.title}</h1>
                 <p className="hero-subtitle">{slide.subtitle}</p>
                 <div className="hero-button-group">

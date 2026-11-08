@@ -34,7 +34,7 @@ export default function BioLayout() {
       >
         <div className="logo">
           <Link to="/">
-            <h2>Light Cells Solutions</h2>
+            <h2>LightCells Solutions</h2>
           </Link>
         </div>
 
