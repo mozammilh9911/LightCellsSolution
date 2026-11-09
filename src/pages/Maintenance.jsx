@@ -204,6 +204,52 @@ export default function Maintenance() {
         </div>
       </section>
 
+      {/* MAINTENANCE & SUPPORT ABOUT SECTION */}
+<section id="maintenance-about-section" className="about-section maintenance-about-section">
+  <div className="section-header">
+    <h2>About Our Maintenance & Technical Services</h2>
+    <p>
+      Light Cells Solutions is a technology-backed service platform that connects 
+      research facilities, laboratories, and enterprises with certified technical 
+      experts for equipment servicing, system calibration, and infrastructure support.
+    </p>
+    <p>
+      We eliminate downtime and safeguard critical workflows by delivering dependable, 
+      transparent, and high-precision technical services every single time.
+    </p>
+
+    <div className="it-about-highlights">
+      <div className="it-highlight-card">
+        <h3>Equipment Calibration & Care</h3>
+        <p>
+          Delivering high-precision maintenance, routine inspection, and performance 
+          tuning for scientific instruments and laboratory machinery to ensure operational accuracy.
+        </p>
+      </div>
+
+      <div className="it-highlight-card">
+        <h3>Rapid Technical Response</h3>
+        <p>
+          Providing on-demand troubleshooting and emergency repair support, connecting your 
+          facility with verified technicians to resolve hardware and system faults without delay.
+        </p>
+      </div>
+
+      <div className="it-highlight-card">
+        <h3>Smart Infrastructure Diagnostics</h3>
+        <p>
+          Deploying preventive diagnostic tools and scheduled upkeep routines designed to extend 
+          the lifespan of your hardware and prevent unexpected operational interruptions.
+        </p>
+      </div>
+    </div>
+
+    <blockquote className="about-quote">
+      Ensuring reliability, protecting precision — that’s Light Cells Solutions.
+    </blockquote>
+  </div>
+</section>
+
       {/* 2. APPLIANCE REPAIR & SERVICE SECTION */}
       <section className="uc-pattern-section">
         <div className="maintenance-container">

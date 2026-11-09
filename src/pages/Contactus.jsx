@@ -260,22 +260,22 @@ export default function BiotechnologyContact() {
                   <span className="info-icon">📍</span>
                   <div>
                     <h4>Corporate Headquarters</h4>
-                    <p>Light Cells Solutions Biotech Tower, Zone C, Tech Park, India</p>
+                    <p>LightCells Solutions Biotech Tower, Zone 7, Jamia Park, India</p>
                   </div>
                 </div>
                 <div className="info-item">
                   <span className="info-icon">✉️</span>
                   <div>
                     <h4>Direct Emails</h4>
+                    <p>lightcellssolutions@gmail.com</p>
                     <p>support@lightcellsbiotech.com</p>
-                    <p>sales@lightcellsbiotech.com</p>
                   </div>
                 </div>
                 <div className="info-item">
                   <span className="info-icon">📞</span>
                   <div>
                     <h4>Support Desk</h4>
-                    <p>+91 (0) 80-4567-8900 (Mon–Sat: 9 AM - 6:30 PM)</p>
+                    <p>+91 (0) 99-9996-6358 (Mon–Sat: 9 AM - 6:30 PM)</p>
                   </div>
                 </div>
               </div>

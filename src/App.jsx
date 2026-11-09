@@ -11,6 +11,7 @@ import About from "./pages/About";
 import ContactUs from "./pages/Contactus";
 import BioLayout from "./pages/BioLayout";
 import Maintenance from "./pages/Maintenance";
+import UnderConstruction from "./pages/UnderConstruction";
 import {
   MaintenanceCart,
   MaintenanceLocation,
@@ -32,6 +33,8 @@ function App() {
         <Route path="about" element={<BioAbout />} />
         <Route path="products" element={<Products />} />
         <Route path="contact" element={<ContactUs />} />
+        <Route path="applications/*" element={<UnderConstruction />} />
+        <Route path="equipment/*" element={<UnderConstruction />} />
       </Route>
 
       <Route path="/contact" element={<BioLayout />}>

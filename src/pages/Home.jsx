@@ -28,7 +28,6 @@ const CORE_DIVISIONS = [
    {
   
     title: "Life Sciences",
-    subtitle: "Lab Informatics & Research",
     description: "High-precision laboratory glassware, bio-plasticware, analytical instruments, and cutting-edge research equipment.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80",
     alt: "Biotechnology Laboratory Supplies",
@@ -37,7 +36,6 @@ const CORE_DIVISIONS = [
   {
    
     title: "Information Technology",
-    subtitle: "Enterprise Software & Cloud",
     description: "Enterprise software architecture, automated laboratory workflows, and secure high-performance data analytics platforms.",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
     alt: "Information Technology Solutions",
@@ -47,7 +45,6 @@ const CORE_DIVISIONS = [
   {
   
     title: "Maintenance & Services",
-    subtitle: "24/7 Support & Calibration",
     description: "24/7 technical assistance, equipment calibration, preventive hardware servicing, and full system integrations.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80",
     alt: "Maintenance and Technical Support Services",

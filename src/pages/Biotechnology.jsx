@@ -240,18 +240,26 @@ export default function Biotechnology() {
       {/* 1. CAROUSEL HERO SECTION */}
       <Carousel />
 
-      {/* 2. ABOUT SECTION */}
+     {/* 2. ABOUT SECTION */}
+     <section id="about-section" className="about-section"></section>
       <section className="about-section">
         <div className="section-header">
           <h2>About Our Biotechnology Division</h2>
           <p>
-            We help research, academic, and industry laboratories find the
-            products, informatics tools, and technical support that fit their
-            day-to-day scientific work.
+            Welcome to Light Cells Solutions, your trusted partner at the intersection of 
+            advanced technology and biotechnology. We drive innovation and excellence by 
+            delivering cutting-edge digital platforms, smart laboratory equipment, and 
+            specialized technical support — empowering researchers, academic institutions, 
+            and industry laboratories to achieve more.
           </p>
-          <Link to="/biotechnology/about">
-            <button className="section-btn">Read More</button>
-          </Link>
+          <p>
+            From streamlining day-to-day scientific workflows with intelligent informatics 
+            to supplying high-performance laboratory solutions, we bridge the gap between 
+            complex scientific needs and reliable execution.
+          </p>
+          <blockquote className="about-quote">
+            Empowering technology, advancing science — that’s Light Cells Solutions.
+          </blockquote>
         </div>
       </section>
 

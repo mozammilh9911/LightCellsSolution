@@ -43,8 +43,7 @@ const ABOUT_CAROUSEL_SLIDES = [
 
 const ABOUT_DIVISIONS = [
   {
-    number: "01",
-    title: "Information Technology",
+   title: "Information Technology",
     description:
       "Enterprise applications, cloud infrastructure, data analytics, and workflow automation that help organizations operate with clarity and scale.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80",
@@ -53,8 +52,7 @@ const ABOUT_DIVISIONS = [
     href: "/Information",
   },
   {
-    number: "02",
-    title: "Biotechnology",
+   title: "Biotechnology",
     description:
       "Laboratory informatics, scientific equipment, and life science products that support research, quality, and discovery.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80",
@@ -63,7 +61,6 @@ const ABOUT_DIVISIONS = [
     href: "/biotechnology",
   },
   {
-    number: "03",
     title: "Service & Maintenance",
     description:
       "Responsive technical support, calibration, preventive maintenance, and repairs to keep essential equipment performing.",

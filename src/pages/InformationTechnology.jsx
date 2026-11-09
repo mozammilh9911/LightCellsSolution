@@ -236,29 +236,34 @@ export default function InformationTechnology() {
   return (
     <div className="information-technology-page">
       <Carousel slides={IT_CAROUSEL_SLIDES} />
-<section className="it-intro-section" id="it-overview">
+{/* 2. ABOUT IT DIVISION SECTION */}
+      <section className="it-intro-section" id="it-about-section">
         <div className="it-intro-inner">
           <div className="it-intro-copy">
-            <span className="it-section-label">WHO WE ARE</span>
+            <span className="it-section-label">About Our IT Division</span>
             <h2>Technology should make the important work easier.</h2>
             <p>
-              We help organizations plan and improve the digital tools behind
-              their services, teams, and everyday operations. Our work starts
-              with your goals and the systems already in place.
+              Welcome to Light Cells Solutions. Our Information Technology division is dedicated to crafting robust, high-performance digital solutions tailored to modern organizational workflows. We help teams plan, build, and optimize the digital tools behind their services, operations, and customer experiences.
+            </p>
+            <p>
+              From initial architectural concepts to full-scale deployment and continuous maintenance, our work starts with your goals and the systems already in place — bridging complex requirements with reliable execution.
             </p>
           </div>
+          
           <aside className="it-overview-panel">
             <span className="it-section-label">HOW WE HELP</span>
             <h3>Connect people, process, and platforms.</h3>
             <p>
-              From a new website to a complex modernization effort, we focus on
-              clear requirements, useful delivery steps, and support beyond launch.
+              From custom web apps to modernizing legacy infrastructures, we focus on clear design, maintainable code, and dependable long-term support beyond launch.
             </p>
             <div className="it-overview-points">
               <span>Websites and applications</span>
               <span>Cloud, data, and integration</span>
               <span>Support and ongoing updates</span>
             </div>
+            <blockquote className="about-quote" style={{ marginTop: "20px", fontSize: "0.95rem" }}>
+              Empowering technology, advancing science — that’s Light Cells Solutions.
+            </blockquote>
           </aside>
         </div>
       </section>
