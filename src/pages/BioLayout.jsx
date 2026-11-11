@@ -830,8 +830,8 @@ export default function BioLayout() {
 
           <div>
             <h4>Contact</h4>
-            <p><a href="mailto:info@lightcellssolutions.com">info@lightcellssolutions.com</a></p>
-            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+            <p><a href="mailto:lightcellssolutions@gmail.com">lightcellssolutions@gmail.com</a></p>
+            <p><a href="tel:+919999966358">+91 99-9996-6358</a></p>
           </div>
         </div>
 
