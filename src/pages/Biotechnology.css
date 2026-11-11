@@ -44,7 +44,7 @@ html {
   transform: none;
 }
 
-.centered-main-nav > a:last-child {
+.centered-main-nav>a:last-child {
   justify-self: end;
 }
 
@@ -92,11 +92,9 @@ html {
 
   font-weight: 600;
 
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #10b981
-  );
+  background: linear-gradient(135deg,
+      #2563eb,
+      #10b981);
 }
 
 /* ===========================================
@@ -192,9 +190,9 @@ ul:not(:has(li)) {
   pointer-events: none;
 }
 
-.subcat-container:hover > .submenu-level-2:not(:empty),
-.subcat-item-container:hover > .submenu-level-3:not(:empty),
-.dropdown-submenu-container:hover > .submenu:not(:empty) {
+.subcat-container:hover>.submenu-level-2:not(:empty),
+.subcat-item-container:hover>.submenu-level-3:not(:empty),
+.dropdown-submenu-container:hover>.submenu:not(:empty) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -232,6 +230,7 @@ ul:not(:has(li)) {
 .dropdown-menu a:focus .arrow {
   color: #ffffff !important;
 }
+
 /* ===========================
    HERO
 =========================== */
@@ -248,10 +247,8 @@ ul:not(:has(li)) {
   padding: 100px 20px;
 
   background:
-    linear-gradient(
-      rgba(255,255,255,0.75),
-      rgba(255,255,255,0.75)
-    ),
+    linear-gradient(rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)),
     url("/images/hero-biotech.jpg");
 
   background-size: cover;
@@ -322,11 +319,9 @@ ul:not(:has(li)) {
 .primary-btn {
   color: white;
 
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #10b981
-  );
+  background: linear-gradient(135deg,
+      #2563eb,
+      #10b981);
 }
 
 .secondary-btn {
@@ -418,7 +413,7 @@ ul:not(:has(li)) {
 
   border: 1px solid #e2e8f0;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   transition: 0.3s;
 }
@@ -570,11 +565,9 @@ ul:not(:has(li)) {
 
   color: white;
 
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #10b981
-  );
+  background: linear-gradient(135deg,
+      #2563eb,
+      #10b981);
 }
 
 .cta-section h2 {
@@ -857,7 +850,8 @@ ul:not(:has(li)) {
 
 .solutions-cards-section {
   background-color: #ebf3fa;
-  padding: 80px 40px; /* Added left and right padding to the section */
+  padding: 80px 40px;
+  /* Added left and right padding to the section */
   width: 100%;
   box-sizing: border-box;
 }
@@ -865,7 +859,8 @@ ul:not(:has(li)) {
 .solutions-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px; /* Ensures breathing room on smaller viewports */
+  padding: 0 20px;
+  /* Ensures breathing room on smaller viewports */
   box-sizing: border-box;
 }
 
@@ -950,6 +945,7 @@ ul:not(:has(li)) {
   background-color: #b1e5fc;
   color: #0b1e48;
 }
+
 .bg-sky-blue .brand-subtitle {
   color: #0b1e48;
 }
@@ -1025,6 +1021,7 @@ ul:not(:has(li)) {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+
   .solutions-cards-section {
     padding: 60px 24px;
   }
@@ -1034,6 +1031,7 @@ ul:not(:has(li)) {
   .solutions-grid {
     grid-template-columns: 1fr;
   }
+
   .solutions-cards-section {
     padding: 40px 16px;
   }
@@ -1105,6 +1103,7 @@ ul:not(:has(li)) {
   background-color: #b1e5fc;
   color: #0b1e48;
 }
+
 .bg-sky-blue .brand-subtitle {
   color: #0b1e48;
 }
@@ -1186,23 +1185,27 @@ ul:not(:has(li)) {
   .solutions-grid {
     grid-template-columns: 1fr;
   }
+
   .gbt-pill-card {
     min-height: auto;
   }
 }
+
 /* ==============================================
    AMEX GBT STYLE 4x2 GRID SECTION (4 Cards per line)
 ============================================== */
 
 .solutions-cards-section {
   background-color: #ebf3fa;
-  padding: 80px 40px; /* Safe left and right outer margin padding */
+  padding: 80px 40px;
+  /* Safe left and right outer margin padding */
   width: 100%;
   box-sizing: border-box;
 }
 
 .solutions-container {
-  max-width: 1400px; /* Generous width to comfortably fit 4 columns side-by-side */
+  max-width: 1400px;
+  /* Generous width to comfortably fit 4 columns side-by-side */
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
@@ -1221,7 +1224,8 @@ ul:not(:has(li)) {
 .solutions-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px; /* Clean gap spacing between cards */
+  gap: 28px;
+  /* Clean gap spacing between cards */
   width: 100%;
 }
 
@@ -1275,6 +1279,7 @@ ul:not(:has(li)) {
   background-color: #b1e5fc;
   color: #0b1e48;
 }
+
 .bg-sky-blue .brand-subtitle {
   color: #0b1e48;
 }
@@ -1346,15 +1351,18 @@ ul:not(:has(li)) {
 /* Responsive Grid Breakpoints */
 @media (max-width: 1200px) {
   .solutions-grid {
-    grid-template-columns: repeat(2, 1fr); /* Automatically wraps to 2x4 on smaller screens */
+    grid-template-columns: repeat(2, 1fr);
+    /* Automatically wraps to 2x4 on smaller screens */
     gap: 24px;
   }
 }
 
 @media (max-width: 640px) {
   .solutions-grid {
-    grid-template-columns: 1fr; /* 1 column on mobile phones */
+    grid-template-columns: 1fr;
+    /* 1 column on mobile phones */
   }
+
   .solutions-cards-section {
     padding: 40px 16px;
   }
@@ -1366,7 +1374,8 @@ ul:not(:has(li)) {
 
 .solutions-cards-section {
   background-color: #ebf3fa;
-  padding: 80px 60px; /* Generous left and right page breathing room */
+  padding: 80px 60px;
+  /* Generous left and right page breathing room */
   width: 100%;
   box-sizing: border-box;
 }
@@ -1445,6 +1454,7 @@ ul:not(:has(li)) {
   background-color: #b1e5fc;
   color: #0b1e48;
 }
+
 .bg-sky-blue .brand-subtitle {
   color: #0b1e48;
 }
@@ -1525,10 +1535,12 @@ ul:not(:has(li)) {
   .solutions-grid {
     grid-template-columns: 1fr;
   }
+
   .solutions-cards-section {
     padding: 40px 20px;
   }
 }
+
 /* ==============================================
    8-CARD MOVING/SLIDING IMAGE GRID SECTION
 ============================================== */
@@ -1605,7 +1617,8 @@ ul:not(:has(li)) {
 
 .sliding-img.active {
   opacity: 1;
-  transform: scale(1.06); /* Gentle zoom effect while active */
+  transform: scale(1.06);
+  /* Gentle zoom effect while active */
 }
 
 .image-gloss-overlay {
@@ -1614,7 +1627,7 @@ ul:not(:has(li)) {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(11,30,72,0.25) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(11, 30, 72, 0.25) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -1683,6 +1696,7 @@ ul:not(:has(li)) {
   .solutions-grid {
     grid-template-columns: 1fr;
   }
+
   .solutions-cards-section {
     padding: 40px 20px;
   }
@@ -1734,7 +1748,8 @@ ul:not(:has(li)) {
 }
 
 .styled-circle-btn:hover .arrow-icon {
-  transform: translateX(3px); /* Smooth nudge effect to the right on hover */
+  transform: translateX(3px);
+  /* Smooth nudge effect to the right on hover */
 }
 
 /* Subtle outer ring pulse animation */
@@ -1805,6 +1820,7 @@ ul:not(:has(li)) {
     opacity: 0;
     transform: translateY(20px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1872,6 +1888,7 @@ ul:not(:has(li)) {
     padding: 12px 18px;
     font-size: 0.88rem;
   }
+
   .help-popup-card {
     right: 20px;
     left: 20px;
@@ -1897,9 +1914,12 @@ ul:not(:has(li)) {
 }
 
 @keyframes divisions-section-highlight {
-  0%, 35% {
+
+  0%,
+  35% {
     background-color: #cffafe;
   }
+
   100% {
     background-color: #f8fafc;
   }
@@ -1968,6 +1988,7 @@ ul:not(:has(li)) {
   .stylish-boxes-grid {
     grid-template-columns: 1fr;
   }
+
   .stylish-boxes-section {
     padding: 40px 20px;
   }
@@ -2026,6 +2047,7 @@ ul:not(:has(li)) {
     opacity: 0;
     transform: translateY(14px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -2102,6 +2124,7 @@ ul:not(:has(li)) {
     height: 46px;
     font-size: 1.1rem;
   }
+
   .help-popup-card {
     right: 16px;
     left: 16px;
@@ -2171,7 +2194,7 @@ html {
   transform: none;
 }
 
-.centered-main-nav > a:last-child {
+.centered-main-nav>a:last-child {
   justify-self: end;
 }
 
@@ -2230,7 +2253,7 @@ html {
   align-items: center;
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url("/images/hero-biotech.jpg");
+  background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("/images/hero-biotech.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -2669,7 +2692,7 @@ html {
   pointer-events: none;
 }
 
-.subcat-container:hover > .submenu-level-2 {
+.subcat-container:hover>.submenu-level-2 {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -2709,7 +2732,7 @@ html {
   pointer-events: none;
 }
 
-.subcat-item-container:hover > .submenu-level-3 {
+.subcat-item-container:hover>.submenu-level-3 {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -2734,15 +2757,18 @@ html {
   font-size: 12px;
   color: #9ca3af;
 }
+
 /* ===========================
    RESPONSIVE MEDIA QUERIES
 =========================== */
 
 @media (max-width: 992px) {
+
   .products-grid,
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .stats-section {
     grid-template-columns: 1fr;
   }
@@ -2755,16 +2781,20 @@ html {
     gap: 20px;
     padding: 20px;
   }
+
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .hero h1 {
     font-size: 42px;
   }
+
   .hero-buttons {
     flex-direction: column;
   }
+
   .products-grid,
   .services-grid,
   .footer-container {
@@ -2844,7 +2874,7 @@ html {
 
 
 /* CRITICAL: Reveal sub-items ONLY when hovering over the specific subcategory container */
-.dropdown-submenu-container:hover > .submenu {
+.dropdown-submenu-container:hover>.submenu {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -2886,7 +2916,7 @@ html {
   left: 0;
   background-color: #1a1a1a;
   min-width: 260px;
-  
+
   /* Removed max-height and overflow-y to eliminate scrollbar */
   overflow: visible;
 
@@ -2952,22 +2982,24 @@ html {
   z-index: 1001;
   border-radius: 6px;
   border: 1px solid #333333;
-  
+
   opacity: 0;
   visibility: hidden;
   transform: translateX(8px);
   transition: all 0.2s ease-in-out;
-  pointer-events: none; /* Prevents accidental hovering when hidden */
+  pointer-events: none;
+  /* Prevents accidental hovering when hidden */
 }
 
 /* ONLY show the submenu when hovering directly over its specific parent container */
-.dropdown-submenu-container:hover > .submenu {
+.dropdown-submenu-container:hover>.submenu {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
   pointer-events: auto;
 }
-.dropdown-submenu-container:hover > .submenu {
+
+.dropdown-submenu-container:hover>.submenu {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -2996,14 +3028,17 @@ html {
   text-decoration: none;
   color: #334155;
   font-weight: 600;
-  display: inline-block; /* Required for transform scaling to work smoothly on inline elements */
+  display: inline-block;
+  /* Required for transform scaling to work smoothly on inline elements */
   transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .nav-links a:hover {
   color: #2563eb;
-  transform: scale(1.05); /* Zooms the link text up slightly */
+  transform: scale(1.05);
+  /* Zooms the link text up slightly */
 }
+
 /* ===========================================
    GRADIENT BACKGROUND FOR DROPDOWN MENUS
 =========================================== */
@@ -3013,7 +3048,8 @@ html {
   position: absolute;
   top: 100%;
   left: 0;
-  background: linear-gradient(white, #f3f4f6); /* Applied here */
+  background: linear-gradient(white, #f3f4f6);
+  /* Applied here */
   min-width: 260px;
   overflow: visible;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
@@ -3039,7 +3075,8 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 10px 16px;
-  color: #d7e4d6; /* White text for contrast on gradient */
+  color: #d7e4d6;
+  /* White text for contrast on gradient */
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -3047,8 +3084,10 @@ html {
 }
 
 .dropdown-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.15); /* Slight highlight on hover */
-  padding-left: 20px; /* Smooth slide effect */
+  background-color: rgba(255, 255, 255, 0.15);
+  /* Slight highlight on hover */
+  padding-left: 20px;
+  /* Smooth slide effect */
   color: #130101;
 }
 
@@ -3057,7 +3096,8 @@ html {
   position: absolute;
   top: 0;
   left: calc(100% + 4px);
-  background: linear-gradient(white); /* Applied here */
+  background: linear-gradient(white);
+  /* Applied here */
   min-width: 260px;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
   list-style: none;
@@ -3072,7 +3112,7 @@ html {
   pointer-events: none;
 }
 
-.subcat-container:hover > .submenu-level-2 {
+.subcat-container:hover>.submenu-level-2 {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -3084,7 +3124,8 @@ html {
   position: absolute;
   top: 0;
   left: calc(100% + 4px);
-  background: linear-gradient(white); /* Applied here */
+  background: linear-gradient(white);
+  /* Applied here */
   min-width: 260px;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
   list-style: none;
@@ -3099,7 +3140,7 @@ html {
   pointer-events: none;
 }
 
-.subcat-item-container:hover > .submenu-level-3 {
+.subcat-item-container:hover>.submenu-level-3 {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -3125,6 +3166,7 @@ html {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
 }
+
 /* ===========================================
    ABOUT SECTION VISIBILITY & FONT FIX
 =========================================== */
@@ -3143,14 +3185,17 @@ html {
 .about-section h2 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #0f172a; /* Deep dark slate for maximum visibility against light background */
+  color: #0f172a;
+  /* Deep dark slate for maximum visibility against light background */
   margin-bottom: 20px;
 }
 
 .about-section p {
-  font-size: 1.1rem; /* Increased font size for readability */
+  font-size: 1.1rem;
+  /* Increased font size for readability */
   line-height: 1.8;
-  color: #334155;    /* Dark gray color so it's clearly visible */
+  color: #334155;
+  /* Dark gray color so it's clearly visible */
   margin-bottom: 18px;
   font-weight: 400;
 }
@@ -3160,7 +3205,8 @@ html {
   font-size: 1.15rem;
   font-style: italic;
   font-weight: 600;
-  color: #2563eb;    /* Vibrant primary blue/emerald tone */
+  color: #2563eb;
+  /* Vibrant primary blue/emerald tone */
 }
 
 
@@ -3298,7 +3344,10 @@ html {
   border-bottom: 1px solid #e2e8f0;
 }
 
-.drawer-header > a { text-decoration: none; }
+.drawer-header>a {
+  text-decoration: none;
+}
+
 .drawer-header button {
   display: inline-flex;
   align-items: center;
@@ -3317,8 +3366,14 @@ html {
   width: 34px;
   height: 44px;
 }
-.lightcells-brand-compact .lightcells-wordmark strong { font-size: 20px; }
-.lightcells-brand-compact .lightcells-wordmark small { font-size: 10px; }
+
+.lightcells-brand-compact .lightcells-wordmark strong {
+  font-size: 20px;
+}
+
+.lightcells-brand-compact .lightcells-wordmark small {
+  font-size: 10px;
+}
 
 .drawer-navigation {
   flex: 1 1 auto;
@@ -3335,8 +3390,8 @@ html {
   text-decoration: none;
 }
 
-.drawer-navigation > a,
-.drawer-navigation > details > summary {
+.drawer-navigation>a,
+.drawer-navigation>details>summary {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -3348,20 +3403,25 @@ html {
 
 .drawer-navigation summary::-webkit-details-marker,
 .drawer-submenu summary::-webkit-details-marker,
-.drawer-nested summary::-webkit-details-marker { display: none; }
+.drawer-nested summary::-webkit-details-marker {
+  display: none;
+}
 
-.drawer-navigation > details > summary::after,
-.drawer-submenu details > summary::after,
-.drawer-nested details > summary::after {
+.drawer-navigation>details>summary::after,
+.drawer-submenu details>summary::after,
+.drawer-nested details>summary::after {
   content: "›";
   margin-left: auto;
   font-size: 21px;
   transition: transform .2s ease;
 }
 
-.drawer-navigation details[open] > summary::after { transform: rotate(90deg); }
-.drawer-navigation > a:hover,
-.drawer-navigation > details > summary:hover,
+.drawer-navigation details[open]>summary::after {
+  transform: rotate(90deg);
+}
+
+.drawer-navigation>a:hover,
+.drawer-navigation>details>summary:hover,
 .drawer-submenu a:hover,
 .drawer-submenu summary:hover,
 .drawer-nested a:hover,
@@ -3385,8 +3445,8 @@ html {
   border-left: 2px solid #dbeafe;
 }
 
-.drawer-submenu > a,
-.drawer-submenu > details > summary {
+.drawer-submenu>a,
+.drawer-submenu>details>summary {
   display: block;
   padding: 11px 10px;
   border-radius: 6px;
@@ -3426,8 +3486,17 @@ html {
   border-top: 1px solid #e2e8f0;
   background: #f8fafc;
 }
-.drawer-footer p { margin: 0 0 5px; color: #2563eb; font-weight: 700; }
-.drawer-footer small { color: #64748b; font-size: 11px; }
+
+.drawer-footer p {
+  margin: 0 0 5px;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.drawer-footer small {
+  color: #64748b;
+  font-size: 11px;
+}
 
 @media (max-width: 1024px) {
   .site-header {
@@ -3449,11 +3518,23 @@ html {
     margin: 0;
   }
 
-  .lightcells-mark { width: 34px; height: 43px; }
-  .lightcells-wordmark strong { font-size: 19px; }
-  .lightcells-wordmark small { font-size: 10px; letter-spacing: 1.5px; }
+  .lightcells-mark {
+    width: 34px;
+    height: 43px;
+  }
 
-  .site-header .desktop-navigation { display: none; }
+  .lightcells-wordmark strong {
+    font-size: 19px;
+  }
+
+  .lightcells-wordmark small {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .site-header .desktop-navigation {
+    display: none;
+  }
 
   .site-header .header-actions {
     position: absolute;
@@ -3462,7 +3543,10 @@ html {
     transform: translateY(-50%);
   }
 
-  .site-header .header-actions > :not(.menu-toggle) { display: none !important; }
+  .site-header .header-actions> :not(.menu-toggle) {
+    display: none !important;
+  }
+
   .site-header .menu-toggle {
     width: 40px;
     height: 40px;
@@ -3473,10 +3557,22 @@ html {
 }
 
 @media (max-width: 380px) {
-  .lightcells-brand { gap: 5px; }
-  .lightcells-mark { width: 29px; height: 38px; }
-  .lightcells-wordmark strong { font-size: 16px; }
-  .lightcells-wordmark small { font-size: 9px; }
+  .lightcells-brand {
+    gap: 5px;
+  }
+
+  .lightcells-mark {
+    width: 29px;
+    height: 38px;
+  }
+
+  .lightcells-wordmark strong {
+    font-size: 16px;
+  }
+
+  .lightcells-wordmark small {
+    font-size: 9px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -3484,4 +3580,3 @@ html {
     display: flex;
   }
 }
-
