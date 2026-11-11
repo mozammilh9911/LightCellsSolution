@@ -1,8 +1,8 @@
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import "./Biotechnology.css";
 import MaintenanceHeaderTools from "./MaintenanceHeaderTools";
-
+import MobileBottomNav from "./MobileBottomNav";
 
 // Structured data with Categories, Subcategories, and Sub-items
 const applicationsData = [
@@ -433,12 +433,43 @@ const laboratoryEquipmentData = [
 ];
 
 
+function LightCellsLogo({ compact = false }) {
+  return (
+    <span className={`lightcells-brand${compact ? " lightcells-brand-compact" : ""}`}>
+      <svg className="lightcells-mark" viewBox="0 0 52 64" aria-hidden="true">
+        <path d="M38 4C12 13 12 25 38 34C12 43 12 53 38 60" fill="none" stroke="#159b78" strokeWidth="4" strokeLinecap="round" />
+        <path d="M14 4C40 13 40 25 14 34C40 43 40 53 14 60" fill="none" stroke="#2477c9" strokeWidth="4" strokeLinecap="round" />
+        <path d="M19 9L33 9M15 20L37 20M16 32L36 32M15 44L37 44M19 56L33 56" stroke="#74b9c8" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+      <span className="lightcells-wordmark">
+        <strong>LightCells</strong>
+        <small>Solutions</small>
+      </span>
+    </span>
+  );
+}
+
 export default function BioLayout() {
   const { pathname, hash } = useLocation();
   const isBiotechnologySection = pathname.startsWith("/biotechnology");
   const isInformationPage = pathname.toLowerCase() === "/information";
   const isMaintenancePage = pathname.startsWith("/maintenance");
   const isCenteredMainNav = ["/", "/about", "/contact"].includes(pathname.toLowerCase());
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, []);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -457,18 +488,18 @@ export default function BioLayout() {
 
   return (
   <div className={`bio-page${pathname === "/" ? " home-page-layout" : ""}`}>
-    <nav
-      className={`bio-navbar${isBiotechnologySection ? "" : " home-navbar"}${
+    <header
+      className={`bio-navbar site-header${isBiotechnologySection ? "" : " home-navbar"}${
         isCenteredMainNav ? " centered-main-nav" : ""
       }${isMaintenancePage ? " maintenance-with-tools" : ""}`}
     >
       <div className="logo">
-        <Link to="/">
-          <h2>LightCells Solutions</h2>
+        <Link to="/" aria-label="LightCells Solutions home">
+          <LightCellsLogo />
         </Link>
       </div>
 
-   <ul className="nav-links">
+      <ul className="nav-links desktop-navigation">
           {/* 1st Position: Home */}
           <li>
             <NavLink to="/">Home</NavLink>
@@ -647,15 +678,128 @@ export default function BioLayout() {
           )}
         </ul>
 
-        {/* CTA Button / Header Tools */}
+      <div className="header-actions">
+        {/* Keep the original desktop Contact Us button / maintenance tools. */}
         {isMaintenancePage ? (
           <MaintenanceHeaderTools />
         ) : (
-          <Link to="/contact">
-            <button className="nav-btn">Contact Us</button>
+          <Link to="/contact" className="nav-btn header-contact">
+            Contact Us
           </Link>
         )}
-    </nav>
+        <button
+          type="button"
+          className="menu-toggle"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={isMenuOpen}
+          aria-controls="main-drawer"
+        >
+          {isMenuOpen ? "✕" : "☰"}
+        </button>
+      </div>
+    </header>
+
+    {isMenuOpen && (
+      <button
+        type="button"
+        className="drawer-overlay"
+        aria-label="Close navigation menu"
+        onClick={closeMenu}
+      />
+    )}
+
+    <aside
+      id="main-drawer"
+      className={`navigation-drawer${isMenuOpen ? " drawer-open" : ""}`}
+      aria-hidden={!isMenuOpen}
+    >
+      <div className="drawer-header">
+        <Link to="/" onClick={closeMenu} aria-label="LightCells Solutions home">
+          <LightCellsLogo compact />
+        </Link>
+        <button type="button" onClick={closeMenu} aria-label="Close menu">✕</button>
+      </div>
+
+      <nav className="drawer-navigation" aria-label="Main navigation">
+        <Link to="/" onClick={closeMenu}><span className="drawer-icon">⌂</span> Home</Link>
+
+        <details open={isBiotechnologySection}>
+          <summary><span className="drawer-icon">🧬</span> Life Sciences</summary>
+          <div className="drawer-submenu">
+            <Link to="/biotechnology" onClick={closeMenu}>Overview</Link>
+            <details>
+              <summary>Applications</summary>
+              <div className="drawer-nested">
+                {applicationsData.map((app) => (
+                  <details key={app.path}>
+                    <summary>{app.name}</summary>
+                    <div className="drawer-nested">
+                      {app.subcategories.map((sub) => (
+                        <details key={sub.path}>
+                          <summary>{sub.name}</summary>
+                          <div className="drawer-nested">
+                            <Link to={sub.path} onClick={closeMenu}>View Category</Link>
+                            {sub.items.map((item) => (
+                              <Link
+                                key={item}
+                                to={`${sub.path}/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                                onClick={closeMenu}
+                              >{item}</Link>
+                            ))}
+                          </div>
+                        </details>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </details>
+            <details>
+              <summary>Laboratory Equipment</summary>
+              <div className="drawer-nested">
+                {laboratoryEquipmentData.map((eq) => (
+                  <Link key={eq.path} to={eq.path} onClick={closeMenu}>{eq.name}</Link>
+                ))}
+              </div>
+            </details>
+            <Link to="/biotechnology/products" onClick={closeMenu}>Products</Link>
+            <Link to="/biotechnology#advanced-scientific-divisions" onClick={closeMenu}>Services</Link>
+          </div>
+        </details>
+
+        <details open={isInformationPage}>
+          <summary><span className="drawer-icon">💻</span> Information Technology</summary>
+          <div className="drawer-submenu">
+            <Link to="/Information" onClick={closeMenu}>Overview</Link>
+            <Link to="/Information#web-app-services" onClick={closeMenu}>Services</Link>
+            <Link to="/Information#it-capabilities" onClick={closeMenu}>Capabilities</Link>
+            <Link to="/Information#it-industries" onClick={closeMenu}>Industries</Link>
+            <Link to="/Information#it-resources" onClick={closeMenu}>Resources</Link>
+            <Link to="/Information#it-about-section" onClick={closeMenu}>About</Link>
+          </div>
+        </details>
+
+        <details open={isMaintenancePage}>
+          <summary><span className="drawer-icon">🔧</span> Maintenance</summary>
+          <div className="drawer-submenu">
+            <Link to="/maintenance" onClick={closeMenu}>Overview</Link>
+            <Link to="/maintenance#maintenance-services" onClick={closeMenu}>Services</Link>
+            <Link to="/maintenance#maintenance-about-section" onClick={closeMenu}>About</Link>
+          </div>
+        </details>
+
+        <Link to="/about" onClick={closeMenu}><span className="drawer-icon">ⓘ</span> About Us</Link>
+        <Link to="/contact" className="drawer-contact-link" onClick={closeMenu}>
+          <span className="drawer-icon">✉</span> Contact Us
+        </Link>
+      </nav>
+
+      <div className="drawer-footer">
+        <p>LightCells Solutions</p>
+        <small>Technology • Biotechnology • Maintenance</small>
+      </div>
+    </aside>
 
       {/* DYNAMIC PAGE / SUB-SECTION CONTENT */}
       <main>
@@ -696,7 +840,11 @@ export default function BioLayout() {
           © {new Date().getFullYear()} Light Cells Solutions. All Rights Reserved.
         </div>
       </footer>
+           
+        <MobileBottomNav onMenuClick={() => setIsMenuOpen(true)}/>
       
+      
+
     </div>
   );
 }
