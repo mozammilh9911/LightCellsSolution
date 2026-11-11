@@ -1,12 +1,12 @@
 
 /* =========================================
-   HOME PAGE
+   HOME PAGE - GLOBAL
 ========================================= */
 
 .home-page-wrapper {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: #ffffff;
   font-family: inherit;
   box-sizing: border-box;
@@ -25,8 +25,8 @@
 .hero-carousel-section {
   position: relative;
   width: 100%;
-  min-height: 520px;
-  height: 520px;
+  height: clamp(420px, 42vw, 560px);
+  min-height: 420px;
   overflow: hidden;
   background: #f5f8ff;
 }
@@ -35,12 +35,10 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 520px;
   overflow: hidden;
 }
 
-/* All slides occupy the same position.
-   Only the active slide is visible. */
+/* Slides */
 
 .carousel-slide {
   position: absolute;
@@ -50,7 +48,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 100px 90px;
+  padding: 60px 100px 85px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -100,22 +98,25 @@
   max-width: 950px;
   margin: 0 auto 24px;
   color: #102b50;
-  font-size: clamp(34px, 4.5vw, 58px);
+  font-size: clamp(30px, 4.2vw, 58px);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -1.5px;
+  overflow-wrap: break-word;
 }
 
 .hero-subtitle {
   max-width: 800px;
   margin: 0 auto;
   color: #52647b;
-  font-size: 18px;
+  font-size: clamp(14px, 1.4vw, 18px);
   font-weight: 400;
   line-height: 1.8;
 }
 
-/* Hero buttons */
+/* =========================================
+   HERO BUTTONS
+========================================= */
 
 .hero-button-group {
   display: flex;
@@ -132,55 +133,49 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 13px 26px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-primary-blue {
-  background-color: #0066e2;
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.98rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
+  padding: 13px 28px;
+  border-radius: 50px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-decoration: none;
   transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
+.btn-primary-blue {
+  color: #ffffff;
+  background-color: #0066e2;
+  border: 1px solid #0066e2;
+}
+
 .btn-primary-blue:hover {
+  color: #ffffff;
   background-color: #0052b8;
+  border-color: #0052b8;
   transform: translateY(-2px);
 }
 
 .btn-secondary-outline {
-  background-color: transparent;
   color: #0b1e48;
-  padding: 14px 28px;
-  border-radius: 50px;
+  background-color: transparent;
   border: 1.5px solid #0b1e48;
-  font-weight: 600;
-  font-size: 0.98rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
 .btn-secondary-outline:hover {
+  color: #0b1e48;
   background-color: rgba(11, 30, 72, 0.05);
   transform: translateY(-2px);
 }
 
-/* Navigation Arrow Controls */
+.arrow {
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* =========================================
+   CAROUSEL NAVIGATION ARROWS
+========================================= */
+
 .carousel-control {
   position: absolute;
   top: 50%;
@@ -235,16 +230,13 @@
   position: relative;
   width: 42px;
   height: 5px;
+  flex-shrink: 0;
   padding: 0;
   overflow: hidden;
   border: none;
   border-radius: 10px;
   background: rgba(37, 99, 235, 0.22);
   cursor: pointer;
-}
-
-.indicator-dot.active {
-  background: rgba(37, 99, 235, 0.22);
 }
 
 .indicator-dot.active::after {
@@ -282,6 +274,7 @@
 
 .curved-blue-banner {
   width: 100%;
+  min-height: 140px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -292,13 +285,14 @@
 }
 
 .banner-text {
+  width: 100%;
   max-width: 1000px;
 }
 
 .banner-text h3 {
   margin: 0 0 12px;
   color: #ffffff;
-  font-size: clamp(21px, 2.5vw, 30px);
+  font-size: clamp(20px, 2.5vw, 30px);
   font-weight: 700;
   line-height: 1.3;
 }
@@ -313,33 +307,36 @@
 /* Optional banner button */
 
 .banner-explore-btn {
-  background-color: #ffffff;
-  color: #0b1e48;
-  padding: 12px 26px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  padding: 12px 26px;
+  border-radius: 50px;
+  color: #0b1e48;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
   white-space: nowrap;
-  flex-shrink: 0;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .banner-explore-btn:hover {
+  color: #0b1e48;
   background-color: #f1f5f9;
   transform: translateY(-2px);
 }
 
-/* ----------------------------------------------
-   3. CORE DIVISIONS ARCHED PILL CARDS
----------------------------------------------- */
+/* =========================================
+   CORE DIVISIONS SECTION
+========================================= */
+
 .pricing-benefits-section {
-  background-color: #ebf3fa;
-  padding: 32px 0 80px;
   width: 100%;
+  padding: 45px 0 80px;
+  background-color: #ebf3fa;
   scroll-margin-top: 80px;
 }
 
@@ -348,44 +345,57 @@
 }
 
 @keyframes division-section-highlight {
-  0%, 35% {
+  0%,
+  35% {
     background-color: #c6e2f8;
   }
+
   100% {
     background-color: #ebf3fa;
   }
 }
 
 .section-inner {
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
 .section-main-title {
-  font-size: 2.2rem;
-  font-weight: 700;
+  margin: 0 0 40px;
   color: #0b1e48;
-  margin-bottom: 40px;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
+/* =========================================
+   DIVISION CARDS GRID
+========================================= */
+
 .arch-cards-grid {
+  width: 100%;
+  max-width: 1100px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 90%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   gap: 28px;
   margin: 0 auto;
 }
 
 .arch-pill-card {
+  min-width: 0;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
-  background-color: #0066e2;
-  border-radius: 5px;
   overflow: hidden;
-  min-height: 540px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  border-radius: 5px;
+  background-color: #0066e2;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s ease;
 }
 
 .arch-pill-card:hover {
@@ -393,49 +403,57 @@
   box-shadow: 0 20px 40px rgba(0, 102, 226, 0.25);
 }
 
+/* Card image */
+
 .arch-photo-wrapper {
+  position: relative;
   width: 100%;
-  height: 55%;
+  height: 230px;
+  flex-shrink: 0;
   overflow: hidden;
   background-color: #0b1e48;
-  flex-shrink: 0;
 }
 
 .arch-photo-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
+
+.arch-pill-card:hover .arch-photo-wrapper img {
+  transform: scale(1.04);
+}
+
+/* Card content */
 
 .arch-card-body {
   position: relative;
   z-index: 2;
-  background-color: #0066e2;
-  color: #ffffff;
-  padding: 5%;
-  border-radius: 0 0 200px 200px;
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 25px 23px;
+  border-radius: 0 0 90px 90px;
   color: #ffffff;
   background: linear-gradient(145deg, #164e9b, #2563eb);
 }
 
 .title-number-row {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 12px;
   margin-bottom: 16px;
 }
 
 .card-title-text {
-  font-size: 1.45rem;
-  font-weight: 700;
+  margin: 0 0 4px;
   color: #ffffff;
-  margin: 0 0 4px 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .card-title-text a {
@@ -449,46 +467,77 @@
 }
 
 .card-subtitle-text {
-  font-size: 0.82rem;
+  display: block;
   color: rgba(255, 255, 255, 0.75);
+  font-size: 0.82rem;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .card-number {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.95rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
 }
 
 .card-description-text {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  margin: 0 0 25px;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
+/* Card action */
+
 .card-action-row {
-  margin-top: auto;
   display: flex;
   justify-content: center;
+  margin-top: auto;
 }
 
 .card-inline-btn {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  padding: 5%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
   border-radius: 50px;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  transition: gap 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .card-inline-btn:hover {
-  gap: 16px;
   color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.25);
+  gap: 14px;
+}
+
+/* =========================================
+   RESPONSIVE: LAPTOPS
+========================================= */
+
+@media (max-width: 1200px) {
+  .section-inner {
+    padding: 0 30px;
+  }
+
+  .arch-cards-grid {
+    gap: 22px;
+  }
+
+  .arch-card-body {
+    padding: 23px 19px;
+  }
+
+  .card-title-text {
+    font-size: 1.2rem;
+  }
 }
 
 /* =========================================
@@ -496,10 +545,9 @@
 ========================================= */
 
 @media (max-width: 1024px) {
-  .hero-carousel-section,
-  .carousel-track-container {
-    min-height: 480px;
+  .hero-carousel-section {
     height: 480px;
+    min-height: 480px;
   }
 
   .carousel-slide {
@@ -507,7 +555,7 @@
   }
 
   .hero-title {
-    font-size: 43px;
+    font-size: clamp(32px, 4.5vw, 44px);
   }
 
   .hero-subtitle {
@@ -516,28 +564,32 @@
 
   .arch-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    max-width: 800px;
+  }
+
+  .arch-pill-card {
+    min-height: 480px;
   }
 }
 
 /* =========================================
-   RESPONSIVE: MOBILE
+   RESPONSIVE: MOBILE AND SMALL TABLETS
 ========================================= */
 
 @media (max-width: 768px) {
-  .hero-carousel-section,
-  .carousel-track-container {
-    min-height: 460px;
+  .hero-carousel-section {
     height: 460px;
+    min-height: 460px;
   }
 
   .carousel-slide {
-    padding: 45px 45px 85px;
+    padding: 45px 55px 80px;
   }
 
   .hero-title {
     margin-bottom: 18px;
-    font-size: clamp(28px, 6vw, 38px);
+    font-size: clamp(28px, 5.5vw, 38px);
+    line-height: 1.25;
     letter-spacing: -0.7px;
   }
 
@@ -554,22 +606,22 @@
   .btn-primary-blue,
   .btn-secondary-outline {
     min-height: 44px;
-    padding: 11px 17px;
-    font-size: 13px;
+    padding: 11px 20px;
+    font-size: 14px;
   }
 
   .carousel-control {
-    width: 34px;
-    height: 34px;
+    width: 35px;
+    height: 35px;
     font-size: 25px;
   }
 
   .carousel-control.prev {
-    left: 8px;
+    left: 10px;
   }
 
   .carousel-control.next {
-    right: 8px;
+    right: 10px;
   }
 
   .carousel-indicators {
@@ -582,6 +634,8 @@
     width: 32px;
     height: 4px;
   }
+
+  /* Banner */
 
   .curved-blue-banner {
     min-height: auto;
@@ -596,8 +650,14 @@
     font-size: 14px;
   }
 
+  /* Divisions */
+
   .pricing-benefits-section {
-    padding: 55px 5% 65px;
+    padding: 50px 0 65px;
+  }
+
+  .section-inner {
+    padding: 0 25px;
   }
 
   .section-main-title {
@@ -606,56 +666,74 @@
   }
 
   .arch-cards-grid {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 430px;
-    margin: 0 auto;
-    gap: 25px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 650px;
+    gap: 20px;
+  }
+
+  .arch-pill-card {
+    min-height: 460px;
   }
 
   .arch-photo-wrapper {
-    height: 230px;
+    height: 190px;
+  }
+
+  .arch-card-body {
+    padding: 22px 18px;
+  }
+
+  .card-title-text {
+    font-size: 1.1rem;
+  }
+
+  .card-description-text {
+    font-size: 0.88rem;
   }
 }
 
 /* =========================================
-   RESPONSIVE: SMALL MOBILE
+   RESPONSIVE: MOBILE PHONES
 ========================================= */
 
-@media (max-width: 480px) {
-  .hero-carousel-section,
-  .carousel-track-container {
-    min-height: 440px;
-    height: 440px;
+@media (max-width: 576px) {
+  .hero-carousel-section {
+    height: 450px;
+    min-height: 450px;
   }
 
   .carousel-slide {
-    padding: 35px 34px 75px;
+    padding: 40px 38px 75px;
   }
 
   .hero-title {
-    font-size: 27px;
+    font-size: clamp(25px, 7vw, 32px);
     line-height: 1.25;
   }
 
   .hero-subtitle {
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .hero-button-group {
     flex-direction: column;
     align-items: stretch;
-    max-width: 220px;
-    margin: 24px auto 0;
+    width: 100%;
+    max-width: 230px;
+    margin: 25px auto 0;
   }
 
   .btn-primary-blue,
   .btn-secondary-outline {
     width: 100%;
+    padding: 12px 15px;
+    font-size: 13px;
   }
 
   .carousel-control {
-    width: 29px;
-    height: 29px;
+    width: 30px;
+    height: 30px;
     font-size: 22px;
   }
 
@@ -670,66 +748,169 @@
   .carousel-indicators {
     right: 15px;
     bottom: 16px;
+    gap: 6px;
   }
 
   .indicator-dot {
     width: 27px;
+    height: 4px;
   }
 
+  /* Banner */
+
   .curved-blue-banner {
-    padding: 24px 20px;
+    padding: 25px 20px;
   }
 
   .banner-text h3 {
     font-size: 19px;
+    line-height: 1.4;
   }
 
   .banner-text p {
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
+  /* Division cards */
+
   .pricing-benefits-section {
-    padding: 45px 18px 55px;
+    padding: 42px 0 55px;
+  }
+
+  .section-inner {
+    padding: 0 18px;
   }
 
   .section-main-title {
+    margin-bottom: 28px;
     font-size: 26px;
   }
 
-.arch-photo-wrapper {
-  height: 160px; /* Shorter height so it doesn't dominate the card */
-  border-radius: 90px 90px 0 0;
-  overflow: hidden;
-  position: relative;
+  .arch-cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 380px;
+    gap: 24px;
+  }
+
+  .arch-pill-card {
+    min-height: 0;
+  }
+
+  .arch-photo-wrapper {
+    height: 190px;
+    border-radius: 75px 75px 0 0;
+  }
+
+  .arch-card-body {
+    min-height: 250px;
+    padding: 22px 20px 28px;
+    border-radius: 0 0 75px 75px;
+    text-align: center;
+  }
+
+  .title-number-row {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .card-title-text {
+    font-size: 1.2rem;
+  }
+
+  .card-subtitle-text {
+    font-size: 0.75rem;
+  }
+
+  .card-number {
+    font-size: 0.85rem;
+  }
+
+  .card-description-text {
+    margin-bottom: 22px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .card-action-row {
+    justify-content: center;
+  }
+
+  .card-inline-btn {
+    padding: 11px 20px;
+    font-size: 0.85rem;
+  }
 }
 
-.arch-photo-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* =========================================
+   RESPONSIVE: VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+  .hero-carousel-section {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .carousel-slide {
+    padding: 35px 30px 70px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+  }
+
+  .hero-button-group {
+    max-width: 200px;
+  }
+
+  .carousel-control {
+    width: 27px;
+    height: 27px;
+    font-size: 20px;
+  }
+
+  .indicator-dot {
+    width: 23px;
+  }
+
+  .section-inner {
+    padding: 0 14px;
+  }
+
+  .arch-photo-wrapper {
+    height: 165px;
+  }
+
+  .arch-card-body {
+    padding: 20px 17px 25px;
+  }
 }
 
-.arch-card-body {
-  padding: 20px 20px 32px 20px; /* Tighter padding to save vertical space */
-  border-radius: 0 0 90px 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  flex: 1;
-}
-.arch-card-body h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 8px;
-}
+/* =========================================
+   ACCESSIBILITY
+========================================= */
 
-.arch-card-body p {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide,
+  .arch-pill-card,
+  .arch-photo-wrapper img,
+  .btn-primary-blue,
+  .btn-secondary-outline {
+    transition: none;
+  }
+
+  .indicator-dot.active::after {
+    animation: none;
+    transform: scaleX(1);
+  }
+
+  .pricing-benefits-section.is-highlighted {
+    animation: none;
+  }
 }
