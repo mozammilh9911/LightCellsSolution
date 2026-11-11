@@ -442,9 +442,7 @@ export default function InformationTechnology() {
             <span className="it-section-label">START A CONVERSATION</span>
             <h2>Need a website, app, or ongoing support?</h2>
           </div>
-          <Link to="/contact" className="it-contact-link">
-            Contact Us <ArrowUpRight aria-hidden="true" size={18} />
-          </Link>
+         
         </div>
       </section>
     </div>

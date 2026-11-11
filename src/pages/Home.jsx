@@ -5,48 +5,59 @@ import "./Home.css";
 
 const CAROUSEL_SLIDES = [
   {
-    
+    id: "01",
     title: "Empowering Global Business & Scientific Infrastructure",
-    subtitle: "One platform for Information Technology, Biotechnology solutions, and high-performance equipment maintenance.",
+    subtitle:
+      "One platform for Information Technology, Biotechnology solutions, and high-performance equipment maintenance.",
     bgClass: "slide-bg-1",
   },
   {
-   
+    id: "02",
     title: "Advanced Biotechnology & Precision Laboratory Equipment",
-    subtitle: "High-precision laboratory glassware, bio-plasticware, and cutting-edge research tools designed for modern laboratories.",
+    subtitle:
+      "High-precision laboratory glassware, bio-plasticware, and cutting-edge research tools designed for modern laboratories.",
     bgClass: "slide-bg-2",
   },
   {
-
+    id: "03",
     title: "24/7 Technical Support & Maintenance Services",
-    subtitle: "Equipment calibration, preventive hardware servicing, and full enterprise system integrations.",
+    subtitle:
+      "Equipment calibration, preventive hardware servicing, and full enterprise system integrations.",
     bgClass: "slide-bg-3",
   },
 ];
 
 const CORE_DIVISIONS = [
-   {
+  {
   
     title: "Life Sciences",
-    description: "High-precision laboratory glassware, bio-plasticware, analytical instruments, and cutting-edge research equipment.",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80",
+    subtitle: "Biotechnology Solutions",
+    description:
+      "High-precision laboratory glassware, bio-plasticware, analytical instruments, and cutting-edge research equipment.",
+    image:
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80",
     alt: "Biotechnology Laboratory Supplies",
     path: "/biotechnology",
   },
   {
-   
+  
     title: "Information Technology",
-    description: "Enterprise software architecture, automated laboratory workflows, and secure high-performance data analytics platforms.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    subtitle: "IT Solutions",
+    description:
+      "Enterprise software architecture, automated laboratory workflows, and secure high-performance data analytics platforms.",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
     alt: "Information Technology Solutions",
     path: "/Information",
   },
- 
   {
   
     title: "Maintenance & Services",
-    description: "24/7 technical assistance, equipment calibration, preventive hardware servicing, and full system integrations.",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80",
+    subtitle: "Technical Support",
+    description:
+      "24/7 technical assistance, equipment calibration, preventive hardware servicing, and full system integrations.",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80",
     alt: "Maintenance and Technical Support Services",
     path: "/maintenance",
   },
@@ -95,7 +106,9 @@ export default function Home() {
           {CAROUSEL_SLIDES.map((slide, index) => (
             <div
               key={slide.id}
-              className={`carousel-slide ${slide.bgClass}${slide.id === "03" ? " division-three-slide" : ""} ${index === currentSlide ? "active" : ""}`}
+              // className={`carousel-slide slide ${slide.bgClass}${slide.id === "03" ? " division-three-slide" : ""} ${index === currentSlide ? "active" : ""}`}
+            className={`carousel-slide slide ${slide.bgClass} ${index === currentSlide ? "active" : ""
+}`}
             >
               <div className="hero-content">
                 {/* <span className="slide-badge"> {slide.id}</span> */}

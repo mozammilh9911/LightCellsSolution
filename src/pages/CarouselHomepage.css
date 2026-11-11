@@ -1,0 +1,387 @@
+
+/* =========================================
+   HOMEPAGE CAROUSEL
+========================================= */
+
+.modern-carousel {
+  position: relative;
+  width: 100%;
+  height: 88vh;
+  min-height: 550px;
+  overflow: hidden;
+  background-color: #090d16;
+}
+
+/* Carousel Slides */
+.carousel-slide-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  background-size: cover;
+  background-position: center;
+  transition:
+    opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 1s;
+}
+
+.carousel-slide-item.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Dark Gradient Overlay */
+.carousel-glass-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.92) 0%,
+    rgba(15, 23, 42, 0.75) 50%,
+    rgba(15, 23, 42, 0.4) 100%
+  );
+}
+
+/* Carousel Content */
+.carousel-content-box {
+  max-width: 750px;
+  color: #ffffff;
+  animation: slideUpFade 0.8s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category Tag */
+.modern-tag {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  color: #38bdf8;
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+/* Heading */
+.carousel-content-box h1 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  background: linear-gradient(to right, #ffffff, #93c5fd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+/* Description */
+.carousel-content-box p {
+  max-width: 650px;
+  margin-bottom: 35px;
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Buttons Container */
+.modern-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Primary Button */
+.btn-glow-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-glow-primary:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.6);
+}
+
+/* Secondary Button */
+.btn-glass-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.btn-glass-secondary:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Keyboard Focus */
+.btn-glow-primary:focus-visible,
+.btn-glass-secondary:focus-visible,
+.carousel-nav-btn:focus-visible,
+.progress-bar-wrapper:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 4px;
+}
+
+/* Previous / Next Navigation */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.carousel-nav-btn:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-nav-btn.prev {
+  left: 30px;
+}
+
+.carousel-nav-btn.next {
+  right: 30px;
+}
+
+/* Progress Indicators */
+.carousel-progress-container {
+  position: absolute;
+  right: 8%;
+  bottom: 30px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Individual Progress Button */
+.progress-bar-wrapper {
+  display: block;
+  width: 50px;
+  height: 4px;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: width 0.3s ease;
+}
+
+.progress-bar-wrapper.active {
+  width: 80px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Active Progress Fill */
+.progress-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #38bdf8;
+}
+
+.progress-bar-wrapper.active .progress-fill {
+  animation: progressTimer 6s linear forwards;
+}
+
+@keyframes progressTimer {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 992px) {
+  .modern-carousel {
+    height: 75vh;
+    min-height: 500px;
+  }
+
+  .carousel-glass-overlay {
+    padding: 0 5%;
+  }
+
+  .carousel-content-box {
+    max-width: 650px;
+  }
+
+  .carousel-content-box h1 {
+    font-size: 2.8rem;
+  }
+
+  .carousel-content-box p {
+    font-size: 1.05rem;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  .modern-carousel {
+    height: 70vh;
+    min-height: 480px;
+  }
+
+  .carousel-glass-overlay {
+    padding: 0 6%;
+  }
+
+  .carousel-content-box {
+    max-width: 100%;
+  }
+
+  .carousel-content-box h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .carousel-content-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .modern-tag {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+
+  .modern-buttons {
+    gap: 12px;
+  }
+
+  .btn-glow-primary,
+  .btn-glass-secondary {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+
+  .carousel-nav-btn {
+    display: none;
+  }
+
+  .carousel-progress-container {
+    right: 50%;
+    bottom: 22px;
+    transform: translateX(50%);
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .modern-carousel {
+    height: 65vh;
+    min-height: 450px;
+  }
+
+  .carousel-content-box h1 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-content-box p {
+    font-size: 0.9rem;
+  }
+
+  .modern-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-glow-primary,
+  .btn-glass-secondary {
+    width: fit-content;
+  }
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide-item,
+  .carousel-content-box,
+  .carousel-nav-btn,
+  .btn-glow-primary,
+  .btn-glass-secondary {
+    animation: none;
+    transition: none;
+  }
+
+  .progress-bar-wrapper.active .progress-fill {
+    animation: none;
+    width: 100%;
+  }
+}
