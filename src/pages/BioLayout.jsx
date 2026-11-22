@@ -13,15 +13,11 @@ const laboratoryEquipmentData = data.equipment.items;
 function LightCellsLogo({ compact = false }) {
   return (
     <span className={`lightcells-brand${compact ? " lightcells-brand-compact" : ""}`}>
-      <svg className="lightcells-mark" viewBox="0 0 52 64" aria-hidden="true">
-        <path d="M38 4C12 13 12 25 38 34C12 43 12 53 38 60" fill="none" stroke="#159b78" strokeWidth="4" strokeLinecap="round" />
-        <path d="M14 4C40 13 40 25 14 34C40 43 40 53 14 60" fill="none" stroke="#2477c9" strokeWidth="4" strokeLinecap="round" />
-        <path d="M19 9L33 9M15 20L37 20M16 32L36 32M15 44L37 44M19 56L33 56" stroke="#74b9c8" strokeWidth="2.5" strokeLinecap="round" />
-      </svg>
-      <span className="lightcells-wordmark">
-        <strong>LightCells</strong>
-        <small>Solutions</small>
-      </span>
+      <img
+        src="/images/log9.png"
+        alt="LightCells Solutions"
+        className="lightcells-logo-img"
+      />
     </span>
   );
 }
