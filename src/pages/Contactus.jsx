@@ -2,13 +2,13 @@ import { useState } from "react";
 import "./Contactus.css";
 
 const INQUIRY_EMAIL =
-  import.meta.env.VITE_PRODUCT_INQUIRY_EMAIL || "sajda3109@gmail.com";
+  import.meta.env.VITE_PRODUCT_INQUIRY_EMAIL || "lightcellssolutions@gmail.com";
 
 const CONTACT_CATEGORIES = [
   "General Inquiry",
   "Information Technology",
-  "Biotechnology",
-  "Service & Maintenance",
+  "Life Sciences",
+
 ];
 
 export default function BiotechnologyContact() {
@@ -123,7 +123,7 @@ export default function BiotechnologyContact() {
       <section className="edge-contact-section">
         <div className="edge-container">
           <div className="edge-contact-grid">
-            
+
             {/* LEFT PANEL: Inquiry Form */}
             <div className="modern-contact-card">
               <div className="card-header-box">

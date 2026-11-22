@@ -35,7 +35,10 @@ html {
 
 .bio-navbar.centered-main-nav {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+
 }
 
 .centered-main-nav .nav-links {
@@ -3475,7 +3478,6 @@ html {
 .drawer-contact-link {
   margin-top: 7px;
   border-radius: 8px;
-  background: #eaf3ff;
   color: #1558a6 !important;
   font-weight: 700 !important;
 }
@@ -3578,5 +3580,116 @@ html {
 @media (max-width: 1024px) {
   .site-header.centered-main-nav {
     display: flex;
+  }
+}
+.bio-navbar.centered-main-nav {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Group menu button + logo together in column 1 */
+.site-header.centered-main-nav .menu-toggle {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.site-header.centered-main-nav .menu-toggle + .logo {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  margin-left: 52px;
+  margin-right: 0;
+}
+
+/* Keep nav links centered in the middle column */
+.site-header.centered-main-nav .nav-links {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  gap: 36px;
+  transform: none;
+}
+
+/* Keep Contact Us / header-actions on the right in column 3 */
+.site-header.centered-main-nav .header-actions,
+.site-header.centered-main-nav > a:last-child {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.data-page { max-width: 1100px; margin: 0 auto; padding: 120px 20px 60px; }
+.breadcrumb { font-size: 14px; margin-bottom: 16px; color: #666; }
+.breadcrumb a { color: #2477c9; text-decoration: none; }
+.data-page-img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+.data-grid { list-style: none; padding: 0; margin-top: 24px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.data-grid li { border: 1px solid #dde6ee; border-radius: 8px; padding: 18px;
+  display: flex; flex-direction: column; gap: 6px; }
+.data-grid li a { font-weight: 600; color: #159b78; text-decoration: none; }
+
+@media (min-width: 1025px) {
+  .site-header:not(.centered-main-nav) {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 10px;
+    justify-content: normal;
+  }
+
+  .site-header:not(.centered-main-nav) .menu-toggle { grid-column: 1; }
+  .site-header:not(.centered-main-nav) .logo { grid-column: 2; margin: 0; }
+
+  .site-header:not(.centered-main-nav) .nav-links {
+    grid-column: 3;
+    justify-self: center;
+    margin: 0;
+    transform: none;
+  }
+
+  .site-header:not(.centered-main-nav) .header-actions {
+    grid-column: 4;
+    justify-self: end;
+  }
+}
+.data-card-img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+
+@media (max-width: 1024px) {
+  .bio-navbar.site-header,
+  .bio-navbar.site-header.centered-main-nav {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0;
+    height: 68px;
+    min-height: 68px;
+    padding: 0 14px;
+  }
+
+  .bio-navbar.site-header .menu-toggle {
+    position: static !important;
+    transform: none !important;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    margin: 0 !important;
+  }
+
+  .bio-navbar.site-header .logo,
+  .bio-navbar.site-header .menu-toggle + .logo {
+    position: static !important;
+    transform: none !important;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    margin: 0 !important;
+  }
+
+  .bio-navbar.site-header .desktop-navigation,
+  .bio-navbar.site-header .header-actions {
+    display: none !important;
   }
 }

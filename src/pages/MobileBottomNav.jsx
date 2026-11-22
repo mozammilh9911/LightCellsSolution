@@ -36,7 +36,7 @@ const MobileBottomNav = ({ onMenuClick }) => {
                 <span>IT</span>
             </NavLink>
 
-            <NavLink
+            {/* <NavLink
                 to="/maintenance"
                 className={({ isActive }) =>
                     `mobile-bottom-item ${isActive ? "active" : ""}`
@@ -44,7 +44,7 @@ const MobileBottomNav = ({ onMenuClick }) => {
             >
                 <span className="mobile-bottom-icon">⚙</span>
                 <span>Maintenance</span>
-            </NavLink>
+            </NavLink> */}
 
             <button
                 type="button"

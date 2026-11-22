@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Balances">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d217b"/><stop offset="1" stop-color="#6726d8"/></linearGradient>
+<radialGradient id="g"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+<rect width="800" height="400" fill="url(#bg)"/><circle cx="599" cy="182" r="190" fill="url(#g)"/>
+<g opacity=".12" fill="#fff"><circle cx="60" cy="50" r="40"/><circle cx="740" cy="360" r="60"/><circle cx="430" cy="380" r="26"/></g>
+<text x="48" y="150" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3" fill="#fff" fill-opacity=".8">LABORATORY EQUIPMENT</text>
+<text x="48" y="270" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="38" font-weight="700" fill="#fff">Balances</text><ellipse cx="599" cy="152" rx="110" ry="20" fill="#fff" fill-opacity=".3" stroke="#fff" stroke-width="6"/><rect x="591" y="152" width="16" height="40" fill="#fff"/><rect x="459" y="192" width="280" height="110" rx="18" fill="#fff" fill-opacity=".2" stroke="#fff" stroke-width="7"/><rect x="529" y="217" width="140" height="44" rx="8" fill="#36a3e2"/><text x="599" y="248" font-family="monospace" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">0.0000 g</text><circle cx="499" cy="280" r="7" fill="#b759f1"/><circle cx="699" cy="280" r="7" fill="#b759f1"/>
+<text x="48" y="372" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" letter-spacing="2" fill="#fff" fill-opacity=".75">LIGHTCELLS SOLUTIONS</text>
+</svg>

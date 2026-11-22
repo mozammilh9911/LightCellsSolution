@@ -10,14 +10,11 @@ import InformationTechnology from "./pages/InformationTechnology";
 import About from "./pages/About";
 import ContactUs from "./pages/Contactus";
 import BioLayout from "./pages/BioLayout";
-import Maintenance from "./pages/Maintenance";
-import UnderConstruction from "./pages/UnderConstruction";
-import {
-  MaintenanceCart,
-  MaintenanceLocation,
-  MaintenanceProfile,
-  MaintenanceSearch,
-} from "./pages/MaintenanceTools";
+import ApplicationsHome from "./pages/ApplicationsHome";
+import AppPage from "./pages/AppPage";
+import EquipmentHome from "./pages/EquipmentHome";
+import EquipmentPage from "./pages/EquipmentPage";
+
 
 function App() {
   return (
@@ -28,26 +25,69 @@ function App() {
       </Route>
 
       {/* 2. BIOTECHNOLOGY SUB-SITE (NESTED ROUTES WITH BIOLAYOUT) */}
-      <Route path="/biotechnology" element={<BioLayout />}>
+      {/* <Route path="/biotechnology" element={<BioLayout />}>
         <Route index element={<Biotechnology />} />
         <Route path="about" element={<BioAbout />} />
         <Route path="products" element={<Products />} />
         <Route path="contact" element={<ContactUs />} />
-        <Route path="applications/*" element={<UnderConstruction />} />
-        <Route path="equipment/*" element={<UnderConstruction />} />
-      </Route>
+
+  <Route path="applications" element={<ApplicationsHome />} />
+  <Route path="applications/:categorySlug" element={<AppPage />} />
+  <Route path="applications/:categorySlug/:subSlug" element={<AppPage />} />
+  <Route path="applications/:categorySlug/:subSlug/:itemSlug" element={<AppPage />} />
+  <Route path="equipment" element={<EquipmentHome />} />
+  <Route path="equipment/:equipSlug" element={<EquipmentPage />} />
+             </Route> */}
+
+<Route path="/biotechnology" element={<BioLayout />}>
+  <Route index element={<Biotechnology />} />
+
+  <Route path="about" element={<BioAbout />} />
+  <Route path="products" element={<Products />} />
+  <Route path="contact" element={<ContactUs />} />
+
+  {/* Applications */}
+  <Route path="applications" element={<ApplicationsHome />} />
+
+  {/* Application category */}
+  <Route
+    path="applications/:categorySlug"
+    element={<AppPage />}
+  />
+
+  {/* Application subcategory */}
+  <Route
+    path="applications/:categorySlug/:subSlug"
+    element={<AppPage />}
+  />
+
+  {/* Application product - your requested URL structure */}
+  <Route
+    path=":categorySlug/:subSlug/:itemSlug"
+    element={<AppPage />}
+  />
+
+  {/* Optional: retain compatibility with old product URLs */}
+  <Route
+    path="applications/:categorySlug/:subSlug/:itemSlug"
+    element={<AppPage />}
+  />
+
+  {/* Laboratory Equipment */}
+  <Route path="equipment" element={<EquipmentHome />} />
+
+  <Route
+    path="equipment/:equipSlug"
+    element={<EquipmentPage />}
+  />
+</Route>
+
 
       <Route path="/contact" element={<BioLayout />}>
         <Route index element={<ContactUs />} />
       </Route>
 
-      <Route path="/maintenance" element={<BioLayout />}>
-        <Route index element={<Maintenance />} />
-        <Route path="location" element={<MaintenanceLocation />} />
-        <Route path="search" element={<MaintenanceSearch />} />
-        <Route path="cart" element={<MaintenanceCart />} />
-        <Route path="profile" element={<MaintenanceProfile />} />
-      </Route>
+     
 
       {/* 3. STANDALONE GENERAL ROUTES */}
       <Route path="/Information" element={<BioLayout />}>

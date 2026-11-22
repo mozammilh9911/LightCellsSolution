@@ -24,8 +24,8 @@ const ABOUT_CAROUSEL_SLIDES = [
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1600&q=80",
     primaryBtnText: "Explore Biotechnology",
     primaryLink: "/biotechnology",
-    secondaryBtnText: "Browse Products",
-    secondaryLink: "/biotechnology/products",
+    secondaryBtnText: "Contact Us",
+    secondaryLink: "/contact",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const ABOUT_CAROUSEL_SLIDES = [
     primaryBtnText: "Get Support",
     primaryLink: "/contact",
     secondaryBtnText: "Explore Services",
-    secondaryLink: "/biotechnology/#advanced-scientific-divisions",
+    secondaryLink: "/contact",
   },
 ];
 
@@ -60,15 +60,15 @@ const ABOUT_DIVISIONS = [
     linkText: "Explore biotechnology",
     href: "/biotechnology",
   },
-  {
-    title: "Service & Maintenance",
-    description:
-      "Responsive technical support, calibration, preventive maintenance, and repairs to keep essential equipment performing.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
-    imageAlt: "Technical specialist working with equipment",
-    linkText: "Explore Maintenance",
-    href: "/maintenance",
-  },
+  // {
+  //   title: "Service & Maintenance",
+  //   description:
+  //     "Responsive technical support, calibration, preventive maintenance, and repairs to keep essential equipment performing.",
+  //   image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+  //   imageAlt: "Technical specialist working with equipment",
+  //   linkText: "Explore Maintenance",
+  //   href: "/maintenance",
+  // },
 ];
 
 export default function About() {
@@ -91,27 +91,29 @@ export default function About() {
       <section className="about-divisions-section" id="about-divisions">
         <div className="about-section-heading">
           <span className="about-eyebrow">OUR DIVISIONS</span>
-          <h2>Three areas of expertise. One connected partner.</h2>
+          <h2>Two areas of expertise. One connected partner.</h2>
           <p>Explore the teams and capabilities behind Light Cells Solutions.</p>
         </div>
 
         <div className="about-divisions-grid">
-          {ABOUT_DIVISIONS.map((division) => (
-            <article className="about-division-card" key={division.number}>
-              <div className="about-division-image">
-                <img src={division.image} alt={division.imageAlt} loading="lazy" />
-              </div>
-              <div className="about-division-content">
-                <span className="about-division-number">{division.number}</span>
-                <h3>{division.title}</h3>
-                <p>{division.description}</p>
-                <Link to={division.href} className="about-division-link">
-                  {division.linkText} <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+  {ABOUT_DIVISIONS.map((division, index) => (
+    <article className="about-division-card" key={division.number || division.title || index}>
+      <div className="about-division-image">
+        <img src={division.image} alt={division.imageAlt} loading="lazy" />
+      </div>
+      <div className="about-division-content">
+        {division.number && (
+          <span className="about-division-number">{division.number}</span>
+        )}
+        <h3>{division.title}</h3>
+        <p>{division.description}</p>
+        <Link to={division.href} className="about-division-link">
+          {division.linkText} <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+    </article>
+  ))}
+</div>
       </section>
 
       <section className="about-contact-band">

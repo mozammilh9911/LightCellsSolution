@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Water Purification System (WPS)">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d287b"/><stop offset="1" stop-color="#5b26d8"/></linearGradient>
+<radialGradient id="g"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+<rect width="800" height="400" fill="url(#bg)"/><circle cx="612" cy="184" r="190" fill="url(#g)"/>
+<g opacity=".12" fill="#fff"><circle cx="60" cy="50" r="40"/><circle cx="740" cy="360" r="60"/><circle cx="430" cy="380" r="26"/></g>
+<text x="48" y="120" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="3" fill="#fff" fill-opacity=".8">APPLICATIONS</text>
+<text x="48" y="247" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="38" font-weight="700" fill="#fff">Water Purification</text><text x="48" y="293" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="38" font-weight="700" fill="#fff">System (WPS)</text><path d="M612,54 C637,99 707,159 707,214 A95,95 0 0 1 517,214 C517,159 587,99 612,54 Z" fill="#fff" fill-opacity=".25" stroke="#fff" stroke-width="7"/><path d="M552,209 a60,60 0 0 0 60,60" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="8" stroke-linecap="round"/><ellipse cx="612" cy="319" rx="70" ry="14" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="4"/><ellipse cx="612" cy="319" rx="105.0" ry="21.0" fill="none" stroke="#fff" stroke-opacity="0.49999999999999994" stroke-width="4"/><ellipse cx="612" cy="319" rx="140" ry="28" fill="none" stroke="#fff" stroke-opacity="0.29999999999999993" stroke-width="4"/>
+<text x="48" y="372" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" letter-spacing="2" fill="#fff" fill-opacity=".75">LIGHTCELLS SOLUTIONS</text>
+</svg>

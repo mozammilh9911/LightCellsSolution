@@ -31,7 +31,7 @@ const CORE_DIVISIONS = [
   {
   
     title: "Life Sciences",
-    subtitle: "Biotechnology Solutions",
+    subtitle: "Life Sciences Solutions",
     description:
       "High-precision laboratory glassware, bio-plasticware, analytical instruments, and cutting-edge research equipment.",
     image:
@@ -50,17 +50,17 @@ const CORE_DIVISIONS = [
     alt: "Information Technology Solutions",
     path: "/Information",
   },
-  {
+  // {
   
-    title: "Maintenance & Services",
-    subtitle: "Technical Support",
-    description:
-      "24/7 technical assistance, equipment calibration, preventive hardware servicing, and full system integrations.",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80",
-    alt: "Maintenance and Technical Support Services",
-    path: "/maintenance",
-  },
+  //   title: "Maintenance & Services",
+  //   subtitle: "Technical Support",
+  //   description:
+  //     "24/7 technical assistance, equipment calibration, preventive hardware servicing, and full system integrations.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80",
+  //   alt: "Maintenance and Technical Support Services",
+  //   path: "/maintenance",
+  // },
 ];
 
 export default function Home() {
@@ -172,8 +172,8 @@ export default function Home() {
           <h2 className="section-main-title">Core Divisions & Services</h2>
 
           <div className="arch-cards-grid">
-            {CORE_DIVISIONS.map((item) => (
-              <div className="arch-pill-card" key={item.id}>
+           {CORE_DIVISIONS.map((item, index) => (
+          <div className="arch-pill-card" key={item.id || item.title || index}>
                 {/* Top Arched Image Mask */}
                 <div className="arch-photo-wrapper">
                   <img src={item.image} alt={item.alt} loading="lazy" />
