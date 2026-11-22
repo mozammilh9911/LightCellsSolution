@@ -353,7 +353,7 @@ export default function BioLayout() {
 
         <div className="drawer-footer">
           <p>LightCells Solutions</p>
-          <small>Technology • Biotechnology </small>
+          <small>Life Sciences • Information Technology </small>
         </div>
       </aside>
 
@@ -367,7 +367,7 @@ export default function BioLayout() {
         <div className="footer-container">
           <div>
             <h3>Light Cells Solutions</h3>
-            <p>Technology, biotechnology, and technical support for organizations and laboratories.</p>
+            <p>Life Sciences and Information Technology Solutions for organizations and laboratories.</p>
           </div>
 
           <div>
