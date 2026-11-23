@@ -369,6 +369,7 @@ export default function BioLayout() {
           <div>
             <h4>Quick Links</h4>
             <p><Link to="/">Home</Link></p>
+            <p><Link to="/biotechnology">Life Sciences</Link></p>
             <p><Link to="/Information">Information Technology</Link></p>
             <p><Link to="/about">About</Link></p>
             {isBiotechnologySection && (

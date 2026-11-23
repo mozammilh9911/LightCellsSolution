@@ -17,12 +17,12 @@ const ABOUT_CAROUSEL_SLIDES = [
   },
   {
     id: 2,
-    tag: "BIOTECHNOLOGY",
+    tag: "LIFE SCIENCES",
     title: "Tools and expertise for scientific discovery",
     description:
       "Laboratory informatics, research equipment, life science products, and support for modern laboratories.",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1600&q=80",
-    primaryBtnText: "Explore Biotechnology",
+    primaryBtnText: "Explore Life Sciences",
     primaryLink: "/biotechnology",
     secondaryBtnText: "Contact Us",
     secondaryLink: "/contact",
@@ -42,6 +42,15 @@ const ABOUT_CAROUSEL_SLIDES = [
 ];
 
 const ABOUT_DIVISIONS = [
+   {
+   title: "Life Sciences",
+    description:
+      "Laboratory informatics, scientific equipment, and life science products that support research, quality, and discovery.",
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Research laboratory glassware",
+    linkText: "Explore Life Sciences ",
+    href: "/biotechnology",
+  },
   {
    title: "Information Technology",
     description:
@@ -50,16 +59,8 @@ const ABOUT_DIVISIONS = [
     imageAlt: "Data center infrastructure",
     linkText: "Explore IT solutions",
     href: "/Information",
-  },
-  {
-   title: "Biotechnology",
-    description:
-      "Laboratory informatics, scientific equipment, and life science products that support research, quality, and discovery.",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80",
-    imageAlt: "Research laboratory glassware",
-    linkText: "Explore biotechnology",
-    href: "/biotechnology",
-  },
+  }
+ 
   // {
   //   title: "Service & Maintenance",
   //   description:
@@ -79,7 +80,7 @@ export default function About() {
       <section className="about-intro-section">
         <div className="about-intro-content">
           <span className="about-eyebrow">ABOUT LIGHT CELLS SOLUTIONS</span>
-          <h2>Technology, life science, and dependable support in one team.</h2>
+          <h2>Life science ,Technology and dependable support in one team.</h2>
           <p>
             We bring together digital expertise, scientific products, and hands-on
             service to help businesses and laboratories solve practical challenges

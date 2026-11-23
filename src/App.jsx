@@ -25,21 +25,7 @@ function App() {
       </Route>
 
       {/* 2. BIOTECHNOLOGY SUB-SITE (NESTED ROUTES WITH BIOLAYOUT) */}
-      {/* <Route path="/biotechnology" element={<BioLayout />}>
-        <Route index element={<Biotechnology />} />
-        <Route path="about" element={<BioAbout />} />
-        <Route path="products" element={<Products />} />
-        <Route path="contact" element={<ContactUs />} />
-
-  <Route path="applications" element={<ApplicationsHome />} />
-  <Route path="applications/:categorySlug" element={<AppPage />} />
-  <Route path="applications/:categorySlug/:subSlug" element={<AppPage />} />
-  <Route path="applications/:categorySlug/:subSlug/:itemSlug" element={<AppPage />} />
-  <Route path="equipment" element={<EquipmentHome />} />
-  <Route path="equipment/:equipSlug" element={<EquipmentPage />} />
-             </Route> */}
-
-<Route path="/biotechnology" element={<BioLayout />}>
+     <Route path="/biotechnology" element={<BioLayout />}>
   <Route index element={<Biotechnology />} />
 
   <Route path="about" element={<BioAbout />} />
@@ -51,7 +37,7 @@ function App() {
 
   {/* Application category */}
   <Route
-    path="applications/:categorySlug"
+path="applications/:categorySlug"
     element={<AppPage />}
   />
 

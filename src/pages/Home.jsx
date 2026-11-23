@@ -152,10 +152,8 @@ export default function Home() {
       <div className="hero-banner-wrapper">
         <div className="curved-blue-banner">
           <div className="banner-text">
-            <h3>Light Cells Enterprise Platform Release: Customer & Partner FAQ</h3>
-            <p>
-              Discover how our updated multi-divisional structure enhances service delivery, product fulfillment, and client support across all sectors.
-            </p>
+            <h3> Integrated Solutions for a Smarter, Better-Connected Future</h3>
+           <p>Empowering businesses with innovative life sciences and IT solutions.</p>
           </div>
           {/* <Link to="/Information" className="banner-explore-btn">
             Explore <span className="arrow">→</span>

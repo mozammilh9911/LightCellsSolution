@@ -1,34 +1,29 @@
- Homepage
- 
- 1. there will be one about which contains both sections (it and bt) http://localhost:5173/biotechnology/about
+1.  FORM SUBMISSION PAGE
 
 
- 2.Remove contact from homepage
- 3.remove explore from homepage
+https://lightcellssolutions.netlify.app/biotechnology/products
+
+https://lightcellssolutions.netlify.app/contact
+
+
+2 .ADD UNIQUE IMAGES AND CONTENTS ON ALL DROPDOWN CATEGORIES,subcategories.
+
+>>.Applications - 
+            
+ https://lightcellssolutions.netlify.app/biotechnology/applications
+
+>>.Laboratory Equipments - 
+  
+ https://lightcellssolutions.netlify.app/biotechnology/equipment
+
+
+3 . Add correct contact details,email, address, office details  in contact page
+https://lightcellssolutions.netlify.app/contact
+
+
+4. Margins & padding ,spacing  needs to corrcted across websites for both mobile & DESKTOP.
+
+5. Need more unique contents for all pages across websites.
 
 
 
-
- biotech home page
-
- homepage tab should be linked to main home page
-remove conatct button
-service pint to the service home content
-
-
-order header ---------->   home  about  service  product  
-
-
-speak with an expert --> request demo
-
-
-
------------
-
-bitechnology produt page
-
-explore product button should navigate to the product section
-
-explore services=contact us 
-
-request demo -contact page
