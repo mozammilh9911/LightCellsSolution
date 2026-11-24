@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Biotechnology.css";
 import Carousel from "./Carousel";
+import {  useLayoutEffect, useMemo, useRef } from "react";
+import {  NavLink, Outlet } from "react-router-dom";
 
 // 6 Featured Products
 const BIOTECH_FEATURED_PRODUCTS = [

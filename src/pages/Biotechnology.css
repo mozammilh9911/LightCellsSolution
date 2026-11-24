@@ -3550,9 +3550,9 @@ html {
     transform: translateY(-50%);
   }
 
-  .site-header .header-actions> :not(.menu-toggle) {
+  /* .site-header .header-actions> :not(.menu-toggle) {
     display: none !important;
-  }
+  } */
 
   .site-header .menu-toggle {
     width: 40px;
@@ -3730,5 +3730,396 @@ html {
     z-index: 99999 !important;
 
     cursor: pointer;
+  }
+}
+
+/* ==========================================
+   BIOTECHNOLOGY SEARCH
+   Desktop header search functionality
+========================================== */
+
+.bio-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  z-index: 3000;
+}
+
+.bio-search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid #dbe5f0;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #1558a6;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.bio-search-toggle:hover,
+.bio-search-toggle:focus-visible {
+  background: #eff6ff;
+  border-color: #2477c9;
+  outline: none;
+}
+
+.bio-search-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Search dropdown panel */
+
+.bio-search-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 390px;
+  max-width: min(90vw, 390px);
+  background: #ffffff;
+  border: 1px solid #dbe5f0;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.16);
+  overflow: hidden;
+  z-index: 3001;
+}
+
+/* Search input */
+
+.bio-search-input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 8px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+.bio-search-input-wrapper input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #dbe5f0;
+  border-radius: 7px;
+  outline: none;
+  font-size: 14px;
+  color: #173b68;
+  background: #ffffff;
+}
+
+.bio-search-input-wrapper input::placeholder {
+  color: #94a3b8;
+}
+
+.bio-search-input-wrapper input:focus {
+  border-color: #2477c9;
+  box-shadow: 0 0 0 2px rgba(36, 119, 201, 0.1);
+}
+
+/* Close button */
+
+.bio-search-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 23px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bio-search-close:hover {
+  background: #e2e8f0;
+}
+
+/* Search results with independent scrollbar */
+
+.bio-search-results {
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+.bio-search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bio-search-results::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.bio-search-results::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.bio-search-results::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Individual result */
+
+.bio-search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 15px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #173b68;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.bio-search-result:last-child {
+  border-bottom: none;
+}
+
+.bio-search-result:hover,
+.bio-search-result:focus-visible {
+  background: #eff6ff;
+  outline: none;
+}
+
+.bio-search-result-name {
+  font-size: 14px;
+  font-weight: 650;
+  color: #173b68;
+  line-height: 1.4;
+}
+
+.bio-search-result-category {
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Empty search state */
+
+.bio-search-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px 14px;
+  color: #64748b;
+  font-size: 13px;
+  text-align: center;
+}
+
+.bio-search-empty small {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+/* Keep search desktop-only */
+
+/* @media (max-width: 1024px) {
+  .bio-search {
+    display: none !important;
+  }
+} */
+
+/* Prevent search panel from being clipped */
+
+@media (min-width: 1025px) {
+  .site-header {
+    overflow: visible;
+  }
+
+  .site-header .header-actions {
+    position: relative;
+    z-index: 3000;
+  }
+}
+.bio-search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  color: #1558a6;
+  cursor: pointer;
+  outline: none;
+}
+
+.bio-search-toggle:hover,
+.bio-search-toggle:focus,
+.bio-search-toggle:active {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.bio-search-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+/* Show search icon on mobile and desktop */
+.bio-search {
+  display: block !important;
+  position: relative;
+}
+
+.bio-search-toggle {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #1558a6;
+  cursor: pointer;
+}
+
+.bio-search-toggle:hover,
+.bio-search-toggle:focus,
+.bio-search-toggle:active {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.bio-search-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Mobile search positioning */
+@media (max-width: 1024px) {
+  .bio-search {
+    display: block !important;
+  }
+
+  .bio-search-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: auto;
+    width: min(340px, calc(100vw - 30px));
+    z-index: 9999;
+  }
+}
+
+/* ==========================================
+   BIOTECH SEARCH - SAFE RESPONSIVE FIX
+   Does not change existing navigation layout
+========================================== */
+
+/* Search icon: desktop and mobile */
+.site-header .header-actions .bio-search {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 3000;
+}
+
+/* Icon only - no button background or border */
+.site-header .bio-search-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #1558a6;
+  cursor: pointer;
+}
+
+.site-header .bio-search-toggle:hover,
+.site-header .bio-search-toggle:focus,
+.site-header .bio-search-toggle:active {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.site-header .bio-search-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+/* Search dropdown */
+.site-header .bio-search-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  left: auto;
+  width: 390px;
+  max-width: min(90vw, 390px);
+  z-index: 9999;
+}
+
+/* Mobile and tablet */
+@media (max-width: 1024px) {
+
+  /* Keep the existing header layout unchanged */
+  .site-header .header-actions {
+    display: flex !important;
+  }
+
+  /* Hide Contact Us only, not search */
+  .site-header .header-actions .header-contact {
+    display: none !important;
+  }
+
+  /* Keep search visible */
+  .site-header .header-actions .bio-search {
+    display: flex !important;
+  }
+
+  /* Position search panel relative to viewport */
+  .site-header .bio-search-panel {
+    position: fixed;
+    top: 78px;
+    right: 14px;
+    left: auto;
+    width: min(350px, calc(100vw - 28px));
+    max-width: none;
+    z-index: 9999;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 380px) {
+  .site-header .bio-search-toggle {
+    width: 34px;
+    height: 38px;
+  }
+
+  .site-header .bio-search-panel {
+    right: 10px;
+    width: calc(100vw - 20px);
   }
 }

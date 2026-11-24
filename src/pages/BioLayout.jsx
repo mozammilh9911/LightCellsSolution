@@ -1,8 +1,20 @@
 
-import { useEffect, useLayoutEffect, useState } from "react";
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import "./Biotechnology.css";
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
+
+import "./Biotechnology.css";
 import MobileBottomNav from "./MobileBottomNav";
 
 import {
@@ -13,7 +25,345 @@ import {
 const applicationsData = applicationsNavigation;
 const laboratoryEquipmentData = equipmentNavigation;
 
-// DESKTOP NAVIGATION RENDERER
+/* =========================================
+   BUILD SEARCH DATA FROM NAVIGATION TREE
+========================================= */
+
+function buildSearchItems(items, type, parentCategory = "") {
+  return items.flatMap((item) => {
+    const currentCategory = parentCategory
+      ? `${parentCategory} / ${item.name}`
+      : item.name;
+
+    const currentItem = {
+      name: item.name,
+      path: item.path,
+      type,
+      category: parentCategory || type,
+    };
+
+    const childItems = item.children?.length
+      ? buildSearchItems(
+          item.children,
+          type,
+          currentCategory
+        )
+      : [];
+
+    return [currentItem, ...childItems];
+  });
+}
+
+/* =========================================
+   BIOTECHNOLOGY SEARCH COMPONENT
+========================================= */
+
+function BiotechnologySearch({ isBiotechnologySection }) {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [productsData, setProductsData] = useState([]);
+
+  const searchRef = useRef(null);
+  const inputRef = useRef(null);
+
+  const location = useLocation();
+
+  /* =========================================
+     LOAD PRODUCTS FROM PUBLIC JSON
+  ========================================= */
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetch(`${import.meta.env.BASE_URL}products.json`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load products.json");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        if (isMounted && Array.isArray(data)) {
+          setProductsData(data);
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "Unable to load products for Biotechnology search:",
+          error
+        );
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  /* =========================================
+     PREPARE ALL SEARCHABLE ITEMS
+  ========================================= */
+
+  const searchableItems = useMemo(() => {
+    const applicationItems = buildSearchItems(
+      applicationsNavigation,
+      "Application"
+    );
+
+    const equipmentItems = buildSearchItems(
+      equipmentNavigation,
+      "Laboratory Equipment"
+    );
+
+    const productItems = productsData.map((product) => ({
+      id: product.id,
+      name: product.name,
+      type: "Product",
+      category: product.category || "Laboratory Products",
+      tag: product.tag || "",
+      description: product.description || "",
+      path: `/biotechnology/products?product=${encodeURIComponent(
+        product.name
+      )}#catalog-search`,
+    }));
+
+    return [
+      ...applicationItems,
+      ...equipmentItems,
+      ...productItems,
+    ];
+  }, [productsData]);
+
+  /* =========================================
+     FILTER SEARCH RESULTS
+  ========================================= */
+
+  const filteredResults = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    if (!query) {
+      return [];
+    }
+
+    return searchableItems.filter((item) => {
+      const searchableText = [
+        item.name,
+        item.category,
+        item.type,
+        item.tag,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+      return searchableText.includes(query);
+    });
+  }, [searchQuery, searchableItems]);
+
+  /* =========================================
+     FOCUS INPUT WHEN SEARCH OPENS
+  ========================================= */
+
+  useEffect(() => {
+    if (isSearchOpen) {
+      inputRef.current?.focus();
+    }
+  }, [isSearchOpen]);
+
+  /* =========================================
+     CLOSE SEARCH WHEN ROUTE CHANGES
+  ========================================= */
+
+  useEffect(() => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+  }, [location.pathname]);
+
+  /* =========================================
+     OUTSIDE CLICK AND ESCAPE HANDLING
+  ========================================= */
+
+  useEffect(() => {
+    if (!isSearchOpen) {
+      return;
+    }
+
+    const handleOutsideClick = (event) => {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target)
+      ) {
+        setIsSearchOpen(false);
+        setSearchQuery("");
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setIsSearchOpen(false);
+        setSearchQuery("");
+      }
+    };
+
+    document.addEventListener(
+      "mousedown",
+      handleOutsideClick
+    );
+
+    document.addEventListener(
+      "keydown",
+      handleEscape
+    );
+
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleOutsideClick
+      );
+
+      document.removeEventListener(
+        "keydown",
+        handleEscape
+      );
+    };
+  }, [isSearchOpen]);
+
+  /* =========================================
+     DO NOT DISPLAY OUTSIDE BIOTECHNOLOGY
+  ========================================= */
+
+  if (!isBiotechnologySection) {
+    return null;
+  }
+
+  const closeSearch = () => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+  };
+
+  return (
+    <div className="bio-search" ref={searchRef}>
+      {/* SEARCH ICON */}
+
+      <button
+        type="button"
+        className="bio-search-toggle"
+        aria-label="Search Biotechnology"
+        aria-expanded={isSearchOpen}
+        onClick={() => {
+          if (isSearchOpen) {
+            closeSearch();
+          } else {
+            setIsSearchOpen(true);
+            setSearchQuery("");
+          }
+        }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="21"
+          height="21"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-4-4" />
+        </svg>
+      </button>
+
+      {/* SEARCH PANEL */}
+
+      {isSearchOpen && (
+        <div className="bio-search-panel">
+          <div className="bio-search-input-wrapper">
+            <svg
+              viewBox="0 0 24 24"
+              width="19"
+              height="19"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-4-4" />
+            </svg>
+
+            <input
+              ref={inputRef}
+              type="search"
+              value={searchQuery}
+              onChange={(event) =>
+                setSearchQuery(event.target.value)
+              }
+              placeholder="Search applications, equipment, products..."
+              aria-label="Search Biotechnology content"
+              autoComplete="off"
+            />
+
+            <button
+              type="button"
+              className="bio-search-close"
+              aria-label="Close search"
+              onClick={closeSearch}
+            >
+              ×
+            </button>
+          </div>
+
+          {/* SEARCH RESULTS */}
+
+          {searchQuery.trim() !== "" && (
+            <div className="bio-search-results">
+              {filteredResults.length > 0 ? (
+                filteredResults.map((item) => (
+                  <Link
+                    key={
+                      item.type === "Product"
+                        ? `product-${item.id}`
+                        : `${item.type}-${item.path}`
+                    }
+                    to={item.path}
+                    className="bio-search-result"
+                    onClick={closeSearch}
+                  >
+                    <span className="bio-search-result-name">
+                      {item.name}
+                    </span>
+
+                    <span className="bio-search-result-category">
+                      {item.type} · {item.category}
+                      {item.tag ? ` · ${item.tag}` : ""}
+                    </span>
+                  </Link>
+                ))
+              ) : (
+                <div className="bio-search-empty">
+                  <span>No matching results found.</span>
+
+                  <small>
+                    Try another application, equipment or product name.
+                  </small>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* =========================================
+   DESKTOP NAVIGATION RENDERER
+========================================= */
+
 function NavigationItems({ items, closeMenu }) {
   return (
     <>
@@ -52,7 +402,10 @@ function NavigationItems({ items, closeMenu }) {
   );
 }
 
-// MOBILE NAVIGATION RENDERER
+/* =========================================
+   MOBILE NAVIGATION RENDERER
+========================================= */
+
 function MobileNavigationItems({ items, closeMenu }) {
   return (
     <>
@@ -60,13 +413,19 @@ function MobileNavigationItems({ items, closeMenu }) {
         const hasChildren = item.children?.length > 0;
 
         return (
-          <div key={item.path} className="mobile-navigation-item">
+          <div
+            key={item.path}
+            className="mobile-navigation-item"
+          >
             {hasChildren ? (
               <details>
                 <summary>{item.name}</summary>
 
                 <div className="drawer-nested">
-                  <Link to={item.path} onClick={closeMenu}>
+                  <Link
+                    to={item.path}
+                    onClick={closeMenu}
+                  >
                     View {item.name}
                   </Link>
 
@@ -77,7 +436,10 @@ function MobileNavigationItems({ items, closeMenu }) {
                 </div>
               </details>
             ) : (
-              <Link to={item.path} onClick={closeMenu}>
+              <Link
+                to={item.path}
+                onClick={closeMenu}
+              >
                 {item.name}
               </Link>
             )}
@@ -88,7 +450,10 @@ function MobileNavigationItems({ items, closeMenu }) {
   );
 }
 
-// LOGO
+/* =========================================
+   LOGO
+========================================= */
+
 function LightCellsLogo({ compact = false }) {
   return (
     <span
@@ -104,6 +469,10 @@ function LightCellsLogo({ compact = false }) {
     </span>
   );
 }
+
+/* =========================================
+   MAIN BIOTECHNOLOGY LAYOUT
+========================================= */
 
 export default function BioLayout() {
   const { pathname, hash } = useLocation();
@@ -122,12 +491,14 @@ export default function BioLayout() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // CLOSE DRAWER WHEN ROUTE CHANGES
+  // CLOSE DRAWER WHEN ROUTE CHANGES.
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // CLOSE DRAWER USING ESCAPE KEY
+  // CLOSE DRAWER USING ESCAPE KEY.
+
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape") {
@@ -138,13 +509,17 @@ export default function BioLayout() {
     document.addEventListener("keydown", handleEscape);
 
     return () => {
-      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener(
+        "keydown",
+        handleEscape
+      );
     };
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  // SCROLL TO SECTION
+  // SCROLL TO SECTION.
+
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({
       behavior: "smooth",
@@ -152,7 +527,8 @@ export default function BioLayout() {
     });
   };
 
-  // PAGE SCROLL MANAGEMENT
+  // PAGE SCROLL MANAGEMENT.
+
   useLayoutEffect(() => {
     if (hash) {
       scrollToSection(hash.slice(1));
@@ -169,6 +545,7 @@ export default function BioLayout() {
       }`}
     >
       {/* HEADER */}
+
       <header
         className={`bio-navbar site-header${
           isBiotechnologySection ? "" : " home-navbar"
@@ -177,12 +554,17 @@ export default function BioLayout() {
         }`}
       >
         {/* HAMBURGER */}
+
         <button
           type="button"
           className="menu-toggle"
-          onClick={() => setIsMenuOpen((open) => !open)}
+          onClick={() =>
+            setIsMenuOpen((open) => !open)
+          }
           aria-label={
-            isMenuOpen ? "Close navigation" : "Open navigation"
+            isMenuOpen
+              ? "Close navigation"
+              : "Open navigation"
           }
           aria-expanded={isMenuOpen}
           aria-controls="main-drawer"
@@ -191,6 +573,7 @@ export default function BioLayout() {
         </button>
 
         {/* LOGO */}
+
         <div className="logo">
           <Link to="/" aria-label="LightCells Solutions home">
             <LightCellsLogo />
@@ -198,12 +581,14 @@ export default function BioLayout() {
         </div>
 
         {/* DESKTOP NAVIGATION */}
+
         <ul className="nav-links desktop-navigation">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
 
           {/* HOME PAGE NAVIGATION */}
+
           {pathname === "/" || pathname === "/about" ? (
             <>
               <li>
@@ -225,9 +610,11 @@ export default function BioLayout() {
           ) : (
             <>
               {/* BIOTECHNOLOGY NAVIGATION */}
+
               {isBiotechnologySection && (
                 <>
                   {/* APPLICATIONS */}
+
                   <li className="dropdown-container">
                     <NavLink to="/biotechnology/applications">
                       Applications ▾
@@ -242,6 +629,7 @@ export default function BioLayout() {
                   </li>
 
                   {/* LABORATORY EQUIPMENT */}
+
                   <li className="dropdown-container">
                     <NavLink to="/biotechnology/equipment">
                       Laboratory Equipment ▾
@@ -256,6 +644,7 @@ export default function BioLayout() {
                   </li>
 
                   {/* SERVICES */}
+
                   <li>
                     <NavLink
                       to="/biotechnology/#advanced-scientific-divisions"
@@ -270,6 +659,7 @@ export default function BioLayout() {
                   </li>
 
                   {/* PRODUCTS */}
+
                   <li>
                     <NavLink to="/biotechnology/products">
                       Products
@@ -279,6 +669,7 @@ export default function BioLayout() {
               )}
 
               {/* INFORMATION TECHNOLOGY NAVIGATION */}
+
               {isInformationPage && (
                 <>
                   <li>
@@ -328,6 +719,7 @@ export default function BioLayout() {
               )}
 
               {/* ABOUT NAVIGATION */}
+
               <li>
                 <NavLink
                   to={
@@ -360,15 +752,27 @@ export default function BioLayout() {
           )}
         </ul>
 
-        {/* CONTACT BUTTON */}
+        {/* HEADER ACTIONS */}
+        
+
         <div className="header-actions">
-          <Link to="/contact" className="nav-btn header-contact">
+          <BiotechnologySearch
+            isBiotechnologySection={
+              isBiotechnologySection
+            }
+          />
+
+          <Link
+            to="/contact"
+            className="nav-btn header-contact"
+          >
             Contact Us
           </Link>
         </div>
       </header>
 
       {/* DRAWER OVERLAY */}
+
       {isMenuOpen && (
         <button
           type="button"
@@ -379,6 +783,7 @@ export default function BioLayout() {
       )}
 
       {/* MOBILE DRAWER */}
+
       <aside
         id="main-drawer"
         className={`navigation-drawer${
@@ -414,6 +819,7 @@ export default function BioLayout() {
           </Link>
 
           {/* LIFE SCIENCES */}
+
           <details open={isBiotechnologySection}>
             <summary>
               <span className="drawer-icon">🧬</span>
@@ -421,11 +827,15 @@ export default function BioLayout() {
             </summary>
 
             <div className="drawer-submenu">
-              <Link to="/biotechnology" onClick={closeMenu}>
+              <Link
+                to="/biotechnology"
+                onClick={closeMenu}
+              >
                 Overview
               </Link>
 
               {/* APPLICATIONS */}
+
               <details>
                 <summary>Applications</summary>
 
@@ -438,6 +848,7 @@ export default function BioLayout() {
               </details>
 
               {/* LABORATORY EQUIPMENT */}
+
               <details>
                 <summary>Laboratory Equipment</summary>
 
@@ -466,6 +877,7 @@ export default function BioLayout() {
           </details>
 
           {/* INFORMATION TECHNOLOGY */}
+
           <details open={isInformationPage}>
             <summary>
               <span className="drawer-icon">💻</span>
@@ -473,7 +885,10 @@ export default function BioLayout() {
             </summary>
 
             <div className="drawer-submenu">
-              <Link to="/Information" onClick={closeMenu}>
+              <Link
+                to="/Information"
+                onClick={closeMenu}
+              >
                 Overview
               </Link>
 
@@ -538,11 +953,13 @@ export default function BioLayout() {
       </aside>
 
       {/* DYNAMIC PAGE CONTENT */}
+
       <main>
         <Outlet />
       </main>
 
       {/* COMMON FOOTER */}
+
       <footer className="footer">
         <div className="footer-container">
           <div>
@@ -556,10 +973,25 @@ export default function BioLayout() {
           <div>
             <h4>Quick Links</h4>
 
-            <p><Link to="/">Home</Link></p>
-            <p><Link to="/biotechnology">Life Sciences</Link></p>
-            <p><Link to="/Information">Information Technology</Link></p>
-            <p><Link to="/about">About</Link></p>
+            <p>
+              <Link to="/">Home</Link>
+            </p>
+
+            <p>
+              <Link to="/biotechnology">
+                Life Sciences
+              </Link>
+            </p>
+
+            <p>
+              <Link to="/Information">
+                Information Technology
+              </Link>
+            </p>
+
+            <p>
+              <Link to="/about">About</Link>
+            </p>
 
             {isBiotechnologySection && (
               <>
@@ -583,7 +1015,9 @@ export default function BioLayout() {
               </>
             )}
 
-            <p><Link to="/contact">Contact Us</Link></p>
+            <p>
+              <Link to="/contact">Contact Us</Link>
+            </p>
           </div>
 
           <div>
@@ -610,6 +1044,7 @@ export default function BioLayout() {
       </footer>
 
       {/* MOBILE BOTTOM NAVIGATION */}
+
       <MobileBottomNav
         onMenuClick={() => setIsMenuOpen(true)}
       />

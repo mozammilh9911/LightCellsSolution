@@ -1,5 +1,6 @@
+
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Carousel from "./Carousel";
 import "./Products.css";
 
@@ -22,14 +23,20 @@ export default function ProductsPage() {
   const [inquiryProduct, setInquiryProduct] = useState(null);
   const [inquiryStatus, setInquiryStatus] = useState("idle");
   const [inquiryMessage, setInquiryMessage] = useState("");
+
   const { hash } = useLocation();
+  const [searchParams] = useSearchParams();
   const searchInputRef = useRef(null);
+
+  const selectedProductFromUrl = searchParams.get("product") || "";
 
   // Fetch products from the public JSON file
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}products.json`)
       .then((response) => {
-        if (!response.ok) throw new Error("Failed to load product catalogue.");
+        if (!response.ok) {
+          throw new Error("Failed to load product catalogue.");
+        }
         return response.json();
       })
       .then((data) => {
@@ -42,6 +49,15 @@ export default function ProductsPage() {
       });
   }, []);
 
+  // Apply product search received from the Biotechnology header search
+  useEffect(() => {
+    if (selectedProductFromUrl) {
+      setSearchQuery(selectedProductFromUrl);
+      setSelectedCategory("All Products");
+    }
+  }, [selectedProductFromUrl]);
+
+  // Handle product inquiry form submission
   const handleInquirySubmit = async (event) => {
     event.preventDefault();
     setInquiryStatus("submitting");
@@ -69,9 +85,13 @@ export default function ProductsPage() {
           body: JSON.stringify(payload),
         },
       );
+
       const result = await response.json();
 
-      if (!response.ok || (result.success !== "true" && result.success !== true)) {
+      if (
+        !response.ok ||
+        (result.success !== "true" && result.success !== true)
+      ) {
         throw new Error(
           typeof result.message === "string"
             ? result.message
@@ -93,6 +113,7 @@ export default function ProductsPage() {
     }
   };
 
+  // Scroll to catalogue search when arriving from header search
   useEffect(() => {
     if (hash !== "#catalog-search") return;
 
@@ -100,18 +121,26 @@ export default function ProductsPage() {
       behavior: "smooth",
       block: "start",
     });
+
     searchInputRef.current?.focus({ preventScroll: true });
   }, [hash]);
 
+  // Filter products by category, name, description, and tag
   const filteredProducts = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
     return productsData.filter((product) => {
       const matchesCategory =
-        selectedCategory === "All Products" || product.category === selectedCategory;
+        selectedCategory === "All Products" ||
+        product.category === selectedCategory;
+
       const matchesSearch =
-        product.name.toLowerCase().includes(normalizedQuery) ||
-        product.description.toLowerCase().includes(normalizedQuery);
+        !normalizedQuery ||
+        product.name?.toLowerCase().includes(normalizedQuery) ||
+        product.description?.toLowerCase().includes(normalizedQuery) ||
+        product.category?.toLowerCase().includes(normalizedQuery) ||
+        product.tag?.toLowerCase().includes(normalizedQuery);
+
       return matchesCategory && matchesSearch;
     });
   }, [productsData, selectedCategory, searchQuery]);
@@ -126,13 +155,16 @@ export default function ProductsPage() {
       {/* 2. Floating Glassmorphism Controls Section */}
       <section
         id="catalog-search"
-        className={`catalog-control-panel${hash === "#catalog-search" ? " is-highlighted" : ""}`}
+        className={`catalog-control-panel${
+          hash === "#catalog-search" ? " is-highlighted" : ""
+        }`}
       >
         <div className="edge-container">
           <div className="glass-control-bar">
             {/* Search Input with Neon Accent */}
             <div className="search-box-wrapper">
               <span className="search-icon">🔍</span>
+
               <input
                 ref={searchInputRef}
                 type="text"
@@ -140,8 +172,13 @@ export default function ProductsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
+
               {searchQuery && (
-                <button className="clear-search" onClick={() => setSearchQuery("")}>
+                <button
+                  className="clear-search"
+                  onClick={() => setSearchQuery("")}
+                  type="button"
+                >
                   ✕
                 </button>
               )}
@@ -151,14 +188,16 @@ export default function ProductsPage() {
               {CATEGORIES.map((category) => (
                 <button
                   key={category.value}
-                  className={`pill-btn ${selectedCategory === category.value ? "active" : ""}`}
+                  type="button"
+                  className={`pill-btn ${
+                    selectedCategory === category.value ? "active" : ""
+                  }`}
                   onClick={() => setSelectedCategory(category.value)}
                 >
                   {category.label}
                 </button>
               ))}
             </div>
-
           </div>
         </div>
       </section>
@@ -182,9 +221,13 @@ export default function ProductsPage() {
             <div className="empty-catalog-state">
               <div className="empty-icon">🧪</div>
               <h3>No items match your search</h3>
-              <p>Try a different keyword or category to browse the catalogue.</p>
+              <p>
+                Try a different keyword or category to browse the catalogue.
+              </p>
+
               <button
                 className="reset-btn"
+                type="button"
                 onClick={() => {
                   setSearchQuery("");
                   setSelectedCategory("All Products");
@@ -199,7 +242,13 @@ export default function ProductsPage() {
                 <div className="modern-product-card" key={product.id}>
                   <div className="card-image-box">
                     <span className="badge-neon">{product.tag}</span>
-                    <img src={product.image} alt={product.name} loading="lazy" />
+
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      loading="lazy"
+                    />
+
                     <div className="image-overlay-glow"></div>
                   </div>
 
@@ -212,6 +261,7 @@ export default function ProductsPage() {
                   <div className="card-action-bar">
                     <button
                       className="btn-cyan-glow"
+                      type="button"
                       onClick={() => {
                         setInquiryProduct(product);
                         setInquiryStatus("idle");
@@ -235,11 +285,20 @@ export default function ProductsPage() {
             <div className="banner-info">
               <span className="mini-tag">PRODUCT INFORMATION</span>
               <h2>Need help finding the right item?</h2>
-              <p>Share your application or specifications with our team to discuss suitable products.</p>
+              <p>
+                Share your application or specifications with our team to
+                discuss suitable products.
+              </p>
             </div>
+
             <button
               className="btn-glass-download"
-              onClick={() => alert("Catalogue requests are not connected in this preview yet.")}
+              type="button"
+              onClick={() =>
+                alert(
+                  "Catalogue requests are not connected in this preview yet.",
+                )
+              }
             >
               Ask About the Catalogue
             </button>
@@ -249,7 +308,10 @@ export default function ProductsPage() {
 
       {/* 5. Glassmorphism Modal Overlay */}
       {inquiryProduct && (
-        <div className="glass-modal-backdrop" onClick={() => setInquiryProduct(null)}>
+        <div
+          className="glass-modal-backdrop"
+          onClick={() => setInquiryProduct(null)}
+        >
           <div
             className="glass-modal-card"
             role="dialog"
@@ -265,10 +327,12 @@ export default function ProductsPage() {
             >
               ✕
             </button>
+
             <div className="modal-header">
               <span className="modal-tag">PRODUCT ENQUIRY</span>
               <h3 id="product-inquiry-title">{inquiryProduct.name}</h3>
             </div>
+
             {inquiryMessage && (
               <p
                 className={`inquiry-status-message ${inquiryStatus}`}
@@ -278,6 +342,7 @@ export default function ProductsPage() {
                 {inquiryMessage}
               </p>
             )}
+
             {inquiryStatus !== "success" && (
               <form onSubmit={handleInquirySubmit}>
                 <input
@@ -288,6 +353,7 @@ export default function ProductsPage() {
                   autoComplete="off"
                   aria-hidden="true"
                 />
+
                 <div className="form-field">
                   <label htmlFor="inquiry-name">Your Name *</label>
                   <input
@@ -301,6 +367,7 @@ export default function ProductsPage() {
                     placeholder="Your name"
                   />
                 </div>
+
                 <div className="form-field">
                   <label htmlFor="inquiry-email">Email Address *</label>
                   <input
@@ -313,6 +380,7 @@ export default function ProductsPage() {
                     placeholder="name@example.com"
                   />
                 </div>
+
                 <div className="form-field">
                   <label htmlFor="inquiry-phone">Phone Number *</label>
                   <input
@@ -328,6 +396,7 @@ export default function ProductsPage() {
                     placeholder="+91 98765 43210"
                   />
                 </div>
+
                 <div className="form-field">
                   <label htmlFor="inquiry-organization">Organization</label>
                   <input
@@ -339,6 +408,7 @@ export default function ProductsPage() {
                     placeholder="Your organization (optional)"
                   />
                 </div>
+
                 <div className="form-field">
                   <label htmlFor="inquiry-quantity">Target Quantity *</label>
                   <input
@@ -351,8 +421,11 @@ export default function ProductsPage() {
                     required
                   />
                 </div>
+
                 <div className="form-field">
-                  <label htmlFor="inquiry-remarks">Specifications / Remarks</label>
+                  <label htmlFor="inquiry-remarks">
+                    Specifications / Remarks
+                  </label>
                   <textarea
                     id="inquiry-remarks"
                     name="remarks"
@@ -361,12 +434,15 @@ export default function ProductsPage() {
                     placeholder="Share specifications or questions (optional)."
                   />
                 </div>
+
                 <button
                   type="submit"
                   className="btn-cyan-glow full-width"
                   disabled={inquiryStatus === "submitting"}
                 >
-                  {inquiryStatus === "submitting" ? "Sending..." : "Send Query"}
+                  {inquiryStatus === "submitting"
+                    ? "Sending..."
+                    : "Send Query"}
                 </button>
               </form>
             )}
