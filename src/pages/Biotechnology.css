@@ -1386,7 +1386,7 @@ ul:not(:has(li)) {
 .solutions-container {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0px  14px;
+  padding: 0px  13px;
   box-sizing: border-box;
 }
 
@@ -1558,7 +1558,7 @@ ul:not(:has(li)) {
 .solutions-container {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0 14px;
+  padding: 0 13px;
   box-sizing: border-box;
 }
 
