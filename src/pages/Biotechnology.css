@@ -862,7 +862,7 @@ ul:not(:has(li)) {
 .solutions-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
   /* Ensures breathing room on smaller viewports */
   box-sizing: border-box;
 }
@@ -1210,7 +1210,7 @@ ul:not(:has(li)) {
   max-width: 1400px;
   /* Generous width to comfortably fit 4 columns side-by-side */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0px 16px;
   box-sizing: border-box;
 }
 
@@ -1386,7 +1386,7 @@ ul:not(:has(li)) {
 .solutions-container {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0px 0px;
+  padding: 0px  14px;
   box-sizing: border-box;
 }
 
@@ -1558,7 +1558,7 @@ ul:not(:has(li)) {
 .solutions-container {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0px 0px;
+  padding: 0 14px;
   box-sizing: border-box;
 }
 
