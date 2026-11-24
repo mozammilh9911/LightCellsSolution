@@ -1885,19 +1885,24 @@ ul:not(:has(li)) {
 }
 
 @media (max-width: 480px) {
+
   .floating-help-btn {
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 18px;
-    font-size: 0.88rem;
+    bottom: 85px;
+    right: 16px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+    z-index: 1002;
   }
 
   .help-popup-card {
-    right: 20px;
-    left: 20px;
+    right: 16px;
+    left: 16px;
     width: auto;
-    bottom: 80px;
+    bottom: 145px;
+    z-index: 1001;
   }
+
 }
 
 /* ==============================================
@@ -3691,5 +3696,39 @@ html {
   .bio-navbar.site-header .desktop-navigation,
   .bio-navbar.site-header .header-actions {
     display: none !important;
+  }
+}
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+/* FIX: FLOATING HELP BUTTON ON MOBILE */
+
+@media screen and (max-width: 768px) {
+  .floating-help-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    position: fixed !important;
+
+    right: 16px !important;
+    bottom: calc(85px + env(safe-area-inset-bottom, 0px)) !important;
+
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px;
+    min-height: 48px;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50%;
+    z-index: 99999 !important;
+
+    cursor: pointer;
   }
 }

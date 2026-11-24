@@ -383,7 +383,7 @@ export default function Biotechnology() {
       </section>
 
       {/* 7. STATS SECTION */}
-      <section className="stats-section">
+      {/* <section className="stats-section">
         <div className="stat-card">
           <h2>Products</h2>
           <p>Research supplies and lab essentials</p>
@@ -396,7 +396,7 @@ export default function Biotechnology() {
           <h2>Support</h2>
           <p>Service and maintenance enquiries</p>
         </div>
-      </section>
+      </section> */}
 
       {/* 8. CONTACT */}
       <section className="cta-section">
