@@ -4,7 +4,7 @@ The official website for Light Cells Solutions, presenting the company's biotech
 
 ## Overview
 
-The site brings the company's services and products together in one place. Visitors can explore biotechnology products, learn about IT and maintenance services, and contact the team with enquiries.
+The site brings the company's services and products together in one place. Visitors can explore lifesciences products, learn about IT and maintenance services, and contact the team with enquiries.
 
 ## Features
 

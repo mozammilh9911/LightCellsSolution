@@ -244,10 +244,10 @@ export default function Biotechnology() {
      <section id="about-section" className="about-section"></section>
       <section className="about-section">
         <div className="section-header">
-          <h2>About Our Biotechnology Division</h2>
+          <h2>About Our Life Sciences Division</h2>
           <p>
             Welcome to Light Cells Solutions, your trusted partner at the intersection of 
-            advanced technology and biotechnology. We drive innovation and excellence by 
+            advanced technology and life sciences. We drive innovation and excellence by 
             delivering cutting-edge digital platforms, smart laboratory equipment, and 
             specialized technical support — empowering researchers, academic institutions, 
             and industry laboratories to achieve more.
@@ -421,7 +421,7 @@ export default function Biotechnology() {
       {isHelpOpen && (
         <div className="help-popup-card">
           <div className="help-header">
-            <h3>Biotech Support Assistant</h3>
+            <h3>Life Sciences Support Assistant</h3>
             <p>Ask us about products, informatics, or laboratory support.</p>
           </div>
           <form

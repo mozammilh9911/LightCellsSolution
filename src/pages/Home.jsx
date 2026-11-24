@@ -13,7 +13,7 @@ const CAROUSEL_SLIDES = [
   },
   {
     id: "02",
-    title: "Advanced Biotechnology & Precision Laboratory Equipment",
+    title: "Advanced Life-Sciences & Precision Laboratory Equipment",
     subtitle:
       "High-precision laboratory glassware, bio-plasticware, and cutting-edge research tools designed for modern laboratories.",
     bgClass: "slide-bg-2",

@@ -206,7 +206,7 @@ export default function BiotechnologyContact() {
                       minLength={2}
                       maxLength={120}
                       autoComplete="organization"
-                      placeholder="e.g. Apex Biotech Labs"
+                      placeholder="e.g. LightCells Solutions Labs"
                     />
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export default function BiotechnologyContact() {
                   <span className="info-icon">📍</span>
                   <div>
                     <h4>Corporate Headquarters</h4>
-                    <p>LightCells Solutions Biotech Tower, Zone 7, Jamia Park, India</p>
+                    <p>LightCells Solutions  Tower, Zone 7, Jamia Park, India</p>
                   </div>
                 </div>
                 <div className="info-item">
@@ -283,7 +283,7 @@ export default function BiotechnologyContact() {
               <div className="map-placeholder-card">
                 <div className="map-overlay-content">
                   <span className="map-pin">📍</span>
-                  <h4>Biotech R&D Center</h4>
+                  <h4>Life Sciences R&D Center</h4>
                   <p>Interactive Location View</p>
                   <a
                     href="https://maps.google.com"
