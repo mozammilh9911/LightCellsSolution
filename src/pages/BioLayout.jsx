@@ -462,7 +462,7 @@ function LightCellsLogo({ compact = false }) {
       }`}
     >
       <img
-        src="/images/log9.png"
+        src="/images/lightcells_logo_capital_L_5_15.png"
         alt="LightCells Solutions"
         className="lightcells-logo-img"
       />
@@ -1031,7 +1031,12 @@ export default function BioLayout() {
 
             <p>
               <a href="tel:+919999966358">
-                +91 99-9996-6358
+                +91-9999966358
+              </a>
+            </p>
+            <p>
+              <a href="tel:+919711666358">
+                +91-9711666358
               </a>
             </p>
           </div>
