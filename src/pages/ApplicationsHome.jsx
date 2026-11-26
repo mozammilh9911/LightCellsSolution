@@ -9,29 +9,24 @@ export default function ApplicationsHome() {
   return (
     <section className="data-page">
 
+      {/* Main Heading and Description - Outside Grid */}
       <div className="category-page-heading">
         <h1>{title}</h1>
-
         {description && <p>{description}</p>}
       </div>
 
+      {/* Category Grid - No Descriptions */}
       <div className="category-cards-grid">
 
         {categories.map((cat, index) => (
           <article className="category-card" key={cat.slug}>
 
-            {/* Card Header */}
-            <div
-              className={`category-card-header color-${index % 6}`}
-            >
-           
+            <div className={`category-card-header color-${index % 6}`}>
               <h2>{cat.name}</h2>
             </div>
 
-            {/* Card Body */}
             <div className="category-card-body">
 
-              {/* Category Image */}
               <div className="category-card-image-wrapper">
                 {cat.image && (
                   <img
@@ -45,23 +40,15 @@ export default function ApplicationsHome() {
                 )}
               </div>
 
-              {/* Description */}
-              <p className="category-card-description">
-                {cat.description}
-              </p>
-
-              {/* Subcategory Count */}
               <small className="category-card-count">
                 {cat.subcategories?.length || 0} Subcategories
               </small>
 
-              {/* Explore */}
               <Link to={cat.path} className="explore-button">
                 Explore →
               </Link>
 
             </div>
-
           </article>
         ))}
 

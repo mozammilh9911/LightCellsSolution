@@ -2,13 +2,13 @@
   "applications": {
     "basePath": "/biotechnology/applications",
     "title": "Applications",
-    "description": "",
+    "description": "Empowering researchers and laboratories with innovative biotechnology solutions that simplify workflows, enhance precision and support scientific discoveries.",
     "categories": [
       {
         "slug": "molecular-biology",
         "name": "Molecular Biology",
         "path": "/biotechnology/applications/molecular-biology",
-        "description": "",
+        "description": "Molecular biology opens a window into the tiny biological mechanisms that shape every living organism. It brings together scientific research and advanced laboratory methods to investigate how genetic material and cellular molecules interact, communicate, and influence biological functions.",
         "image": "/images/applications/molecular-biology.svg",
         "subcategories": [
           {
@@ -803,7 +803,7 @@
         "slug": "protein-biology",
         "name": "Protein Biology",
         "path": "/biotechnology/applications/protein-biology",
-        "description": "",
+        "description": "Proteins are essential components of living systems, contributing to the structure, activity, and regulation of cells. Protein biology investigates how these molecules are produced, acquire their functional shapes, and interact with other cellular components to support processes such as communication between cells, energy production, and immune defence.",
         "image": "/images/applications/protein-biology.svg",
         "subcategories": [
           {
@@ -2032,7 +2032,7 @@
         "slug": "cell-culture",
         "name": "Cell Culture",
         "path": "/biotechnology/applications/cell-culture",
-        "description": "",
+        "description": "Cell culture provides researchers with a way to maintain and investigate living cells in a carefully managed laboratory environment. By supplying suitable nutrients, growth media, and environmental conditions, scientists can support cell survival, development, and multiplication outside the organism from which the cells originate.",
         "image": "/images/applications/cell-culture.svg",
         "subcategories": [
           {
@@ -3400,7 +3400,7 @@
         "slug": "analytical-chemistry",
         "name": "Analytical Chemistry",
         "path": "/biotechnology/applications/analytical-chemistry",
-        "description": "",
+        "description": "Analytical chemistry helps researchers discover what a material contains and determine the quantity of its individual chemical constituents. Through carefully designed laboratory investigations, scientists can examine the composition, purity, and characteristics of samples with accuracy and consistency.",
         "image": "/images/applications/analytical-chemistry.svg",
         "subcategories": [
           {
@@ -4281,7 +4281,7 @@
         "slug": "organic-synthesis",
         "name": "Organic Synthesis",
         "path": "/biotechnology/applications/organic-synthesis",
-        "description": "",
+        "description": "Organic synthesis enables scientists to create new carbon-based molecules by combining simpler chemical substances through carefully planned reactions. By selecting suitable starting materials, reaction conditions, and chemical pathways, researchers can develop compounds with specific structures and characteristics for further study and practical use.",
         "image": "/images/applications/organic-synthesis.svg",
         "subcategories": [
           {
@@ -4362,7 +4362,7 @@
         "slug": "material-science",
         "name": "Material Science",
         "path": "/biotechnology/applications/material-science",
-        "description": "",
+        "description": "Materials science explores how different materials are formed, how their internal structures influence their behaviour, and how they can be improved for specific applications. By examining materials at microscopic and atomic scales, researchers can better understand characteristics such as durability, thermal stability, electrical performance, strength, and resistance to environmental conditions.",
         "image": "/images/applications/material-science.svg",
         "subcategories": [
           {
@@ -4419,7 +4419,7 @@
         "slug": "filtration",
         "name": "Filtration",
         "path": "/biotechnology/applications/filtration",
-        "description": "",
+        "description": "Filtration is a separation technique used to remove unwanted particles from fluids by directing a mixture through a material designed to retain selected components. Depending on the application, filter media such as membranes, fibrous materials, and porous surfaces can be used to achieve the required level of separation.",
         "image": "/images/applications/filtration.svg",
         "subcategories": [
           {
@@ -4468,7 +4468,7 @@
         "slug": "water-purification",
         "name": "Water Purification System (WPS)",
         "path": "/biotechnology/applications/water-purification",
-        "description": "",
+        "description": "LightCells Solutions offers laboratory water purification solutions designed to meet the varying water quality requirements of modern scientific environments. Our range supports the preparation of purified and ultrapure water for laboratories involved in pharmaceutical development, clinical testing, academic studies, industrial processes, and scientific research.",
         "image": "/images/applications/water-purification.svg",
         "subcategories": [
           {
