@@ -557,49 +557,13 @@ ul:not(:has(li)) {
    CTA
 =========================== */
 
-.cta-section {
-  margin: 80px;
 
-  padding: 100px 30px;
 
-  text-align: center;
 
-  border-radius: 30px;
 
-  color: white;
 
-  background: linear-gradient(135deg,
-      #2563eb,
-      #10b981);
-}
 
-.cta-section h2 {
-  font-size: 48px;
 
-  margin-bottom: 20px;
-}
-
-.cta-section p {
-  font-size: 18px;
-}
-
-.contact-btn {
-  margin-top: 25px;
-
-  border: none;
-
-  padding: 15px 30px;
-
-  border-radius: 12px;
-
-  background: white;
-
-  color: #2563eb;
-
-  font-weight: 700;
-
-  cursor: pointer;
-}
 
 /* ===========================
    FOOTER
@@ -713,10 +677,7 @@ ul:not(:has(li)) {
     padding: 60px 20px;
   }
 
-  .cta-section {
-    margin: 20px;
-    padding: 60px 20px;
-  }
+  
 
   .footer-container {
     padding: 50px 20px;
@@ -2531,34 +2492,13 @@ html {
   color: #64748b;
 }
 
-.cta-section {
-  margin: 80px;
-  padding: 100px 30px;
-  text-align: center;
-  border-radius: 30px;
-  color: white;
-  background: linear-gradient(135deg, #2563eb, #10b981);
-}
 
-.cta-section h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
 
-.cta-section p {
-  font-size: 18px;
-}
 
-.contact-btn {
-  margin-top: 25px;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 12px;
-  background: white;
-  color: #2563eb;
-  font-weight: 700;
-  cursor: pointer;
-}
+
+
+
+
 
 /* ===========================
    FOOTER
@@ -4172,5 +4112,583 @@ html {
     width: min(350px, calc(100vw - 28px)) !important;
     max-width: none !important;
     z-index: 9999 !important;
+  }
+}
+
+
+/* ==========================================================
+   BIOTECHNOLOGY PAGE — RESPONSIVE LAYOUT & TYPOGRAPHY
+   Keep this block at the end of the stylesheet.
+========================================================== */
+.biotechnology-page,
+.biotechnology-page * {
+  box-sizing: border-box;
+}
+
+.biotechnology-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  color: #1e293b;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.biotechnology-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.biotechnology-page .solutions-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* Consistent desktop card grids */
+.biotechnology-page .edge-product-grid,
+.biotechnology-page .solutions-grid,
+.biotechnology-page .stylish-boxes-grid,
+.biotechnology-page .services-grid {
+  display: grid;
+  align-items: stretch;
+  width: 100%;
+  grid-auto-rows: 1fr;
+}
+
+.biotechnology-page .edge-product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.biotechnology-page .solutions-grid,
+.biotechnology-page .stylish-boxes-grid,
+.biotechnology-page .services-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.biotechnology-page .modern-product-card,
+.biotechnology-page .gbt-pill-card,
+.biotechnology-page .stylish-grid-box,
+.biotechnology-page .service-card {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.biotechnology-page .modern-product-card,
+.biotechnology-page .gbt-pill-card,
+.biotechnology-page .service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.biotechnology-page .card-image-box {
+  flex: 0 0 190px;
+  height: 190px;
+  overflow: hidden;
+  background: #eef4fa;
+}
+
+.biotechnology-page .card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.biotechnology-page .card-content-box,
+.biotechnology-page .card-bottom-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  padding: 22px;
+}
+
+.biotechnology-page .card-top-image {
+  flex: 0 0 180px;
+  height: 180px;
+  min-height: 180px;
+  overflow: hidden;
+}
+
+.biotechnology-page .card-bottom-body p,
+.biotechnology-page .product-desc,
+.biotechnology-page .stylish-grid-box,
+.biotechnology-page .service-card {
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+.biotechnology-page .card-action-bar {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding: 0 22px 22px;
+}
+
+.biotechnology-page .card-action-bar .btn-cyan-glow {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.biotechnology-page .styled-circle-btn,
+.biotechnology-page .service-card a {
+  margin-top: auto;
+}
+
+/* CTA — no oversized fixed margins; content remains centered */
+.biotechnology-page .cta-section {
+  width: calc(100% - 80px);
+  max-width: 1280px;
+  margin: 72px auto;
+  padding: clamp(48px, 6vw, 84px) clamp(24px, 5vw, 64px);
+  border-radius: 28px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.biotechnology-page .cta-section h2 {
+  width: 100%;
+  max-width: 850px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 750;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.biotechnology-page .cta-section p {
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(15px, 1.35vw, 18px);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.biotechnology-page .cta-section a {
+  display: inline-flex;
+  max-width: 100%;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.biotechnology-page .cta-section .contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin: 0;
+  padding: 13px 28px;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  color: #1d4ed8;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.biotechnology-page .cta-section .contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+}
+
+@media (max-width: 1024px) {
+  .biotechnology-page .edge-product-grid,
+  .biotechnology-page .solutions-grid,
+  .biotechnology-page .stylish-boxes-grid,
+  .biotechnology-page .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .biotechnology-page .products-section,
+  .biotechnology-page .solutions-cards-section,
+  .biotechnology-page .stylish-boxes-section,
+  .biotechnology-page .services-section {
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .biotechnology-page .solutions-container {
+    padding-inline: 16px;
+  }
+
+  .biotechnology-page .edge-product-grid,
+  .biotechnology-page .solutions-grid,
+  .biotechnology-page .stylish-boxes-grid,
+  .biotechnology-page .services-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .biotechnology-page .products-section,
+  .biotechnology-page .solutions-cards-section,
+  .biotechnology-page .stylish-boxes-section,
+  .biotechnology-page .services-section,
+  .biotechnology-page .about-section {
+    padding: 42px 16px;
+  }
+
+  .biotechnology-page .section-header,
+  .biotechnology-page .solutions-section-heading {
+    padding-inline: 0;
+  }
+
+  .biotechnology-page .section-header h2,
+  .biotechnology-page .solutions-main-title,
+  .biotechnology-page .services-section > h2 {
+    font-size: clamp(25px, 7vw, 32px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .biotechnology-page .section-header p,
+  .biotechnology-page .solutions-section-heading p,
+  .biotechnology-page .about-section p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .biotechnology-page .modern-product-card,
+  .biotechnology-page .gbt-pill-card,
+  .biotechnology-page .stylish-grid-box,
+  .biotechnology-page .service-card {
+    max-width: 100%;
+  }
+
+  .biotechnology-page .card-image-box {
+    flex-basis: 200px;
+    height: 200px;
+  }
+
+  .biotechnology-page .card-top-image {
+    flex-basis: 190px;
+    height: 190px;
+    min-height: 190px;
+  }
+
+  .biotechnology-page .card-content-box,
+  .biotechnology-page .card-bottom-body {
+    padding: 18px;
+  }
+
+  .biotechnology-page .stylish-grid-box,
+  .biotechnology-page .service-card {
+    padding: 22px 18px;
+  }
+
+  .biotechnology-page .cta-section {
+    width: calc(100% - 32px);
+    margin: 40px auto;
+    padding: 38px 20px;
+    border-radius: 20px;
+    gap: 14px;
+  }
+
+  .biotechnology-page .cta-section h2 {
+    max-width: 100%;
+    font-size: clamp(25px, 7.2vw, 32px);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+  }
+
+  .biotechnology-page .cta-section p {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .biotechnology-page .cta-section .contact-btn {
+    min-height: 46px;
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .biotechnology-page .see-more-container {
+    margin-top: 24px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .biotechnology-page .solutions-container {
+    padding-inline: 12px;
+  }
+
+  .biotechnology-page .products-section,
+  .biotechnology-page .solutions-cards-section,
+  .biotechnology-page .stylish-boxes-section,
+  .biotechnology-page .services-section,
+  .biotechnology-page .about-section {
+    padding-inline: 12px;
+  }
+
+  .biotechnology-page .card-content-box,
+  .biotechnology-page .card-bottom-body {
+    padding: 16px;
+  }
+
+  .biotechnology-page .card-action-bar {
+    padding: 0 16px 16px;
+  }
+
+  .biotechnology-page .cta-section {
+    width: calc(100% - 24px);
+    margin-block: 32px;
+    padding: 32px 16px;
+  }
+}
+
+/* ==========================================================
+   FINAL SPACING COMPACT — Biotechnology page
+   Overrides oversized legacy section spacing above.
+========================================================== */
+.biotechnology-page .about-section,
+.biotechnology-page .products-section,
+.biotechnology-page .solutions-cards-section,
+.biotechnology-page .stylish-boxes-section,
+.biotechnology-page .services-section {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+}
+
+.biotechnology-page .section-header,
+.biotechnology-page .solutions-section-heading {
+  margin-top: 0 !important;
+  margin-bottom: 24px !important;
+}
+
+.biotechnology-page .section-header h2,
+.biotechnology-page .solutions-section-heading .solutions-main-title,
+.biotechnology-page .services-section > h2 {
+  margin-top: 0 !important;
+  margin-bottom: 14px !important;
+}
+
+.biotechnology-page .section-header p,
+.biotechnology-page .solutions-section-heading p {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+.biotechnology-page .about-section .about-quote {
+  margin-top: 14px !important;
+  margin-bottom: 0 !important;
+}
+
+.biotechnology-page .products-section .section-header,
+.biotechnology-page .stylish-boxes-section .section-header {
+  margin-bottom: 24px !important;
+}
+
+.biotechnology-page .edge-product-grid,
+.biotechnology-page .solutions-grid,
+.biotechnology-page .stylish-boxes-grid,
+.biotechnology-page .services-grid {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  row-gap: 18px;
+}
+
+.biotechnology-page .see-more-container {
+  margin-top: 22px !important;
+  margin-bottom: 0 !important;
+}
+
+.biotechnology-page .cta-section {
+  margin-top: 36px !important;
+  margin-bottom: 36px !important;
+}
+
+@media (max-width: 1024px) {
+  .biotechnology-page .about-section,
+  .biotechnology-page .products-section,
+  .biotechnology-page .solutions-cards-section,
+  .biotechnology-page .stylish-boxes-section,
+  .biotechnology-page .services-section {
+    padding-top: 42px !important;
+    padding-bottom: 42px !important;
+  }
+
+  .biotechnology-page .section-header,
+  .biotechnology-page .solutions-section-heading {
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .biotechnology-page .about-section,
+  .biotechnology-page .products-section,
+  .biotechnology-page .solutions-cards-section,
+  .biotechnology-page .stylish-boxes-section,
+  .biotechnology-page .services-section {
+    padding: 28px 16px !important;
+  }
+
+  .biotechnology-page .section-header,
+  .biotechnology-page .solutions-section-heading {
+    margin-bottom: 16px !important;
+  }
+
+  .biotechnology-page .section-header h2,
+  .biotechnology-page .solutions-section-heading .solutions-main-title,
+  .biotechnology-page .services-section > h2 {
+    margin-bottom: 10px !important;
+  }
+
+  .biotechnology-page .section-header p,
+  .biotechnology-page .solutions-section-heading p {
+    margin-bottom: 8px !important;
+    line-height: 1.55;
+  }
+
+  .biotechnology-page .edge-product-grid,
+  .biotechnology-page .solutions-grid,
+  .biotechnology-page .stylish-boxes-grid,
+  .biotechnology-page .services-grid {
+    row-gap: 14px;
+  }
+
+  .biotechnology-page .see-more-container {
+    margin-top: 16px !important;
+  }
+
+  .biotechnology-page .cta-section {
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .biotechnology-page .about-section,
+  .biotechnology-page .products-section,
+  .biotechnology-page .solutions-cards-section,
+  .biotechnology-page .stylish-boxes-section,
+  .biotechnology-page .services-section {
+    padding: 24px 12px !important;
+  }
+}
+
+/* ==========================================================
+   ABOUT SECTION — final responsive typography override
+   Keep this block last so older generic mobile rules cannot
+   shrink the About text.
+========================================================== */
+.biotechnology-page section#about-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 56px 24px !important;
+}
+
+.biotechnology-page section#about-section .section-header {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.biotechnology-page section#about-section .section-header h2 {
+  font-size: clamp(34px, 3.2vw, 44px) !important;
+  line-height: 1.2 !important;
+  font-weight: 750 !important;
+  letter-spacing: -0.02em;
+  margin: 0 0 22px !important;
+}
+
+.biotechnology-page section#about-section .section-header p {
+  max-width: 1080px;
+  margin: 0 auto 18px !important;
+  color: #334155 !important;
+  font-size: 19px !important;
+  line-height: 1.8 !important;
+  font-weight: 400 !important;
+}
+
+.biotechnology-page section#about-section .about-quote {
+  max-width: 1050px;
+  margin: 22px auto 0 !important;
+  color: #1d4ed8 !important;
+  font-size: 19px !important;
+  line-height: 1.7 !important;
+  font-weight: 600 !important;
+}
+
+@media (max-width: 1024px) {
+  .biotechnology-page section#about-section {
+    padding: 44px 24px !important;
+  }
+
+  .biotechnology-page section#about-section .section-header h2 {
+    font-size: 36px !important;
+  }
+
+  .biotechnology-page section#about-section .section-header p {
+    font-size: 19px !important;
+    line-height: 1.8 !important;
+  }
+
+  .biotechnology-page section#about-section .about-quote {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .biotechnology-page section#about-section {
+    padding: 34px 18px !important;
+  }
+
+  .biotechnology-page section#about-section .section-header h2 {
+    font-size: 34px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .biotechnology-page section#about-section .section-header p {
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .biotechnology-page section#about-section .about-quote {
+    margin-top: 18px !important;
+    font-size: 17px !important;
+    line-height: 1.65 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .biotechnology-page section#about-section {
+    padding: 30px 16px !important;
+  }
+
+  .biotechnology-page section#about-section .section-header h2 {
+    font-size: 31px !important;
+  }
+
+  .biotechnology-page section#about-section .section-header p {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+  }
+
+  .biotechnology-page section#about-section .about-quote {
+    font-size: 16.5px !important;
   }
 }

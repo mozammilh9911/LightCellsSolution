@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Biotechnology.css";
 import Carousel from "./Carousel";
-import {  useLayoutEffect, useMemo, useRef } from "react";
-import {  NavLink, Outlet } from "react-router-dom";
 
 // 6 Featured Products
 const BIOTECH_FEATURED_PRODUCTS = [
@@ -243,8 +241,7 @@ export default function Biotechnology() {
       <Carousel />
 
      {/* 2. ABOUT SECTION */}
-     <section id="about-section" className="about-section"></section>
-      <section className="about-section">
+      <section id="about-section" className="about-section">
         <div className="section-header">
           <h2>About Our Life Sciences Division</h2>
           <p>

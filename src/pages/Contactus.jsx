@@ -8,8 +8,9 @@ const INQUIRY_EMAIL =
 
 const CONTACT_CATEGORIES = [
   "General Inquiry",
+    "Life Sciences",
   "Information Technology",
-  "Life Sciences",
+
 ];
 
 const GOOGLE_MAPS_URL =
