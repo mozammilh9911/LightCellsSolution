@@ -15,14 +15,14 @@
             "slug": "nucleic-acid-purification",
             "name": "Nucleic Acid Purification",
             "path": "/biotechnology/applications/molecular-biology/nucleic-acid-purification",
-            "description": "",
+            "description": "Get pure, ready-to-use DNA and RNA with LightCells's isolation kits for plasmids, genomic DNA, RNA, and gel extraction. Designed to support accurate results in PCR, cloning, sequencing, and expression studies.",
             "image": "/images/applications/molecular-biology/nucleic-acid-purification.svg",
             "items": [
               {
                 "slug": "plasmid-isolation-kit",
                 "name": "Plasmid Isolation Kit",
                 "path": "/biotechnology/applications/molecular-biology/nucleic-acid-purification/plasmid-isolation-kit",
-                "description": "",
+                "description": "Isolate pure plasmid DNA from bacterial cultures with this ready-to-use kit. It removes genomic DNA, proteins, and cell debris, giving you clean plasmids for cloning, sequencing, and other downstream applications.",
                 "image": "/images/applications/molecular-biology/nucleic-acid-purification/plasmid-isolation-kit.svg",
                 "products": [
                   {
@@ -180,7 +180,7 @@
             "slug": "agarose-gel-electrophoresis",
             "name": "Agarose Gel Electrophoresis",
             "path": "/biotechnology/applications/molecular-biology/agarose-gel-electrophoresis",
-            "description": "",
+            "description": "Agarose Gel Electrophoresis is a laboratory technique used to separate DNA fragments based on their size using an electric field. It is commonly used after PCR to visualize and verify amplified DNA products, making it essential for DNA analysis, cloning, and molecular biology research.",
             "image": "/images/applications/molecular-biology/agarose-gel-electrophoresis.svg",
             "items": [
               {
@@ -384,7 +384,7 @@
             "slug": "cloning",
             "name": "Cloning",
             "path": "/biotechnology/applications/molecular-biology/cloning",
-            "description": "",
+            "description": "Cloning is a molecular biology technique used to create identical copies of specific DNA fragments by inserting them into vectors such as plasmids. It enables gene replication and is widely used in genetic research, gene expression studies, and recombinant protein production.",
             "image": "/images/applications/molecular-biology/cloning.svg",
             "items": [
               {
@@ -510,7 +510,7 @@
             "slug": "pcr",
             "name": "PCR",
             "path": "/biotechnology/applications/molecular-biology/pcr",
-            "description": "",
+            "description": "PCR (Polymerase Chain Reaction) is a powerful technique used to amplify a specific segment of DNA, generating millions of copies from even a tiny initial sample. The process involves repeated cycles of denaturation, annealing, and extension carried out by a heat-stable DNA polymerase enzyme. PCR is essential in genetic research, medical diagnostics, forensics, and cloning, enabling accurate detection, analysis, and manipulation of DNA sequences.",
             "image": "/images/applications/molecular-biology/pcr.svg",
             "items": [
               {
@@ -675,7 +675,7 @@
             "slug": "qpcr",
             "name": "qPCR",
             "path": "/biotechnology/applications/molecular-biology/qpcr",
-            "description": "",
+            "description": "Quantitative PCR (qPCR), also known as real-time PCR, is a sensitive molecular technique that monitors DNA or RNA amplification using fluorescent signals. It enables accurate quantification of genetic material and is widely used in gene expression studies, pathogen detection, and molecular diagnostics.",
             "image": "/images/applications/molecular-biology/qpcr.svg",
             "items": [
               {
@@ -810,7 +810,7 @@
             "slug": "extraction",
             "name": "Extraction",
             "path": "/biotechnology/applications/protein-biology/extraction",
-            "description": "",
+            "description": "Extraction is a fundamental laboratory process used to isolate and purify specific compounds from biological or chemical samples. Common techniques include liquid–liquid extraction, solid-phase extraction, and nucleic acid extraction (DNA/RNA). These methods are widely used in molecular biology, diagnostics, pharmaceutical research, and analytical applications.",
             "image": "/images/applications/protein-biology/extraction.svg",
             "items": [
               {
@@ -936,7 +936,7 @@
             "slug": "purification",
             "name": "Purification",
             "path": "/biotechnology/applications/protein-biology/purification",
-            "description": "",
+            "description": "Protein purification is a laboratory process used to isolate specific proteins from complex biological samples. Techniques such as affinity, ion-exchange, and size-exclusion chromatography, along with precipitation and electrophoresis, help remove impurities and obtain purified proteins for research, analysis, and therapeutic applications.",
             "image": "/images/applications/protein-biology/purification.svg",
             "items": [
               {
@@ -1023,7 +1023,7 @@
             "slug": "quantification",
             "name": "Quantification",
             "path": "/biotechnology/applications/protein-biology/quantification",
-            "description": "",
+            "description": "Quantification is the process of measuring the concentration or amount of biomolecules such as DNA, RNA, and proteins in a sample. Techniques including spectrophotometry, fluorometry, and colorimetric assays provide accurate measurements for molecular biology research, sample analysis, and quality control.",
             "image": "/images/applications/protein-biology/quantification.svg",
             "items": [
               {
@@ -1149,7 +1149,7 @@
             "slug": "concentration",
             "name": "Concentration",
             "path": "/biotechnology/applications/protein-biology/concentration",
-            "description": "",
+            "description": "Concentration is the measurement of the amount of a substance present in a given volume of solution. In molecular biology, it is commonly used to determine DNA, RNA, and protein levels, ensuring accurate sample preparation, experimental consistency, and reliable research results.",
             "image": "/images/applications/protein-biology/concentration.svg",
             "items": [
               {
@@ -1275,7 +1275,7 @@
             "slug": "sds-page",
             "name": "SDS-PAGE",
             "path": "/biotechnology/applications/protein-biology/sds-page",
-            "description": "",
+            "description": "SDS-PAGE is a protein analysis technique that separates proteins according to their molecular weight using a polyacrylamide gel. SDS gives proteins a uniform negative charge, allowing them to migrate through the gel under an electric field for protein profiling, purity assessment, and molecular weight analysis.",
             "image": "/images/applications/protein-biology/sds-page.svg",
             "items": [
               {
@@ -1483,98 +1483,12 @@
               }
             ]
           },
-          {
-            "slug": "assembly",
-            "name": "Assembly",
-            "path": "/biotechnology/applications/protein-biology/assembly",
-            "description": "",
-            "image": "/images/applications/protein-biology/assembly.svg",
-            "items": [
-              {
-                "slug": "powerpack",
-                "name": "Powerpack",
-                "path": "/biotechnology/applications/protein-biology/assembly/powerpack",
-                "description": "",
-                "image": "/images/applications/protein-biology/assembly/powerpack.svg",
-                "products": [
-                  {
-                    "slug": "sigma-aldrich",
-                    "name": "Sigma Aldrich",
-                    "type": "brand",
-                    "brand": "Sigma Aldrich"
-                  },
-                  {
-                    "slug": "thermo-fisher-scientific",
-                    "name": "Thermo Fisher Scientific",
-                    "type": "brand",
-                    "brand": "Thermo Fisher Scientific"
-                  },
-                  {
-                    "slug": "qiagen",
-                    "name": "Qiagen",
-                    "type": "brand",
-                    "brand": "Qiagen"
-                  },
-                  {
-                    "slug": "abclonal",
-                    "name": "Abclonal",
-                    "type": "brand",
-                    "brand": "Abclonal"
-                  },
-                  {
-                    "slug": "vwr",
-                    "name": "VWR",
-                    "type": "brand",
-                    "brand": "VWR"
-                  }
-                ]
-              },
-              {
-                "slug": "accessories",
-                "name": "Accessories",
-                "path": "/biotechnology/applications/protein-biology/assembly/accessories",
-                "description": "",
-                "image": "/images/applications/protein-biology/assembly/accessories.svg",
-                "products": [
-                  {
-                    "slug": "sigma-aldrich",
-                    "name": "Sigma Aldrich",
-                    "type": "brand",
-                    "brand": "Sigma Aldrich"
-                  },
-                  {
-                    "slug": "thermo-fisher-scientific",
-                    "name": "Thermo Fisher Scientific",
-                    "type": "brand",
-                    "brand": "Thermo Fisher Scientific"
-                  },
-                  {
-                    "slug": "qiagen",
-                    "name": "Qiagen",
-                    "type": "brand",
-                    "brand": "Qiagen"
-                  },
-                  {
-                    "slug": "abclonal",
-                    "name": "Abclonal",
-                    "type": "brand",
-                    "brand": "Abclonal"
-                  },
-                  {
-                    "slug": "vwr",
-                    "name": "VWR",
-                    "type": "brand",
-                    "brand": "VWR"
-                  }
-                ]
-              }
-            ]
-          },
+          
           {
             "slug": "western-blotting",
             "name": "Western Blotting",
             "path": "/biotechnology/applications/protein-biology/western-blotting",
-            "description": "",
+            "description": "Western blotting is a protein detection technique used to identify specific proteins following SDS-PAGE separation. Proteins are transferred onto a membrane and detected using target-specific antibodies through chemiluminescence or colorimetric methods, enabling protein expression analysis and validation.",
             "image": "/images/applications/protein-biology/western-blotting.svg",
             "items": [
               {
@@ -1817,7 +1731,7 @@
             "slug": "elisa",
             "name": "ELISA",
             "path": "/biotechnology/applications/protein-biology/elisa",
-            "description": "",
+            "description": "ELISA (Enzyme-Linked Immunosorbent Assay) is an immunological technique used to detect and quantify specific targets through antigen–antibody binding. The antigen acts as the target, while the antibody specifically recognizes and binds to it. An enzyme-linked detection system produces a measurable colorimetric signal for diagnostic and research applications.",
             "image": "/images/applications/protein-biology/elisa.svg",
             "items": [
               {
@@ -1943,7 +1857,7 @@
             "slug": "antibodies",
             "name": "Antibodies",
             "path": "/biotechnology/applications/protein-biology/antibodies",
-            "description": "",
+            "description": "Antibodies are specialized proteins that specifically recognize and bind to target molecules such as proteins, peptides, hormones, and pathogen antigens. They are widely used to detect and quantify specific targets in research and diagnostic techniques such as Western blotting, ELISA, and immunohistochemistry.",
             "image": "/images/applications/protein-biology/antibodies.svg",
             "items": [
               {

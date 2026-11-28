@@ -10,11 +10,11 @@ export default function AppPage() {
     (c) => c.slug === categorySlug
   );
 
-  const sub = cat?.subcategories.find(
+  const sub = cat?.subcategories?.find(
     (s) => s.slug === subSlug
   );
 
-  const item = sub?.items.find(
+  const item = sub?.items?.find(
     (i) => i.slug === itemSlug
   );
 
@@ -74,7 +74,7 @@ export default function AppPage() {
         )}
       </nav>
 
-      {/* Page Heading */}
+      {/* Main Heading and Description */}
       <div className="category-page-heading">
         <h1>{page.name}</h1>
 
@@ -84,30 +84,24 @@ export default function AppPage() {
       </div>
 
       {/* Current Page Image */}
-      {page.image && (
-        <div className="data-page-image-wrapper">
-          
-        </div>
-      )}
+    
+       
+      
 
       {/* Dynamic Child Cards */}
       {children.length > 0 ? (
-
         <div className="category-cards-grid">
 
           {children.map((child, index) => (
+            <article
+              className="category-card"
+              key={child.slug || child.path || child.name}
+            >
 
-            <article className="category-card" key={child.slug || child.path || child.name}>
-
-              {/* Card Header */}
-              <div
-                className={`category-card-header color-${index % 6}`}
-              >
-            
+              <div className={`category-card-header color-${index % 6}`}>
                 <h2>{child.name}</h2>
               </div>
 
-              {/* Card Body */}
               <div className="category-card-body">
 
                 {child.image && (
@@ -123,12 +117,6 @@ export default function AppPage() {
                   </div>
                 )}
 
-                {child.description && (
-                  <p className="category-card-description">
-                    {child.description}
-                  </p>
-                )}
-
                 {child.path && (
                   <Link
                     to={child.path}
@@ -139,19 +127,14 @@ export default function AppPage() {
                 )}
 
               </div>
-
             </article>
-
           ))}
 
         </div>
-
       ) : (
-
         <p className="coming-soon">
           Products coming soon.
         </p>
-
       )}
 
     </section>
